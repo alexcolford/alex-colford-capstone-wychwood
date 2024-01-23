@@ -1,40 +1,65 @@
 # Project Title
 
-- Wychwood Naturals -
+Wychwood Naturals
 
 ## Overview
 
-What is your app? Brief description in a couple of sentences.
+<!-- What is your app? Brief description in a couple of sentences. -->
 
 Wychwood Naturals is a small family business that focuses on the benefits of natural and locally-sourced ingredients. All products are hand-crafted with the intent of providing alterative options for individuals who appreciate products made from homegrown herbs and hand-picked botanicals.
 
 ### Problem
 
-Why is your app needed? Background information around any pain points or other reasons.
+<!-- Why is your app needed? Background information around any pain points or other reasons. -->
 
 The idea of Wychwood Naturals came from necessity and curiousity. Necessity because sometimes store-bought products contain unfavourable ingredients for those with sensitive skin and allegies and curiousity to see if there are better options from natural resources. With Wychwood Naturals being a small family-owned business, I wanted to improve on the webpage layout as well as create a more dyanmic products products that could easily be updated when new products are available. Also, with the intent of one day having an online store front, I wanted to create the the ability to make a use profile and connect it with a shopping cart.
 
 ### User Profile
 
-Who will use your app? How will they use it? Any special considerations that your app must take into account.
+<!-- Who will use your app? How will they use it? Any special considerations that your app must take into account. -->
+
+- Anyone:
+  - Looking for natural alternatives to store-bought products
+  - Looking to discover the benefits of alot of easily accessible herbs and botancials
+  - Looking to create a profile and purchase products
 
 ### Features
 
-List the functionality that your app will include. These can be written as user stories or descriptions with related details. Do not describe _how_ these features are implemented, only _what_ needs to be implemented.
+<!-- List the functionality that your app will include. These can be written as user stories or descriptions with related details. Do not describe _how_ these features are implemented, only _what_ needs to be implemented. -->
+
+- As a user, I want to be able to learn about the company and it's story, and where it's located
+- As a user, I want to be able to discover the products and learn about the ingredients
+
+- As a user, I want to be able to create an account to purchase products
+- As a user, I want to be able to login to my account in order to utilize the store front
+
+- As a logged in user, I want to be able to add products to a shopping cart
+- As a logged in user, I want to view my cart and see a total at checkout
 
 ## Implementation
 
 ### Tech Stack
 
-List technologies that will be used in your app, including any libraries to save time or provide more functionality. Be sure to research any potential limitations.
+<!-- List technologies that will be used in your app, including any libraries to save time or provide more functionality. Be sure to research any potential limitations. -->
+
+- React
+- Javascript
+- MySQL
+- Express
+
+Client Libraries: - react - react-router - axios
+
+Server Libraries: - knex - express
 
 ### APIs
 
-List any external sources of data that will be used in your app.
+<!-- List any external sources of data that will be used in your app. -->
+
+Maybe a geolocation API to have a map for where the company is located (on the Contact Us page)
 
 ### Sitemap
 
-List the pages of your app with brief descriptions. You can show this visually, or write it out.
+<!-- List the pages of your app with brief descriptions. You can show this visually, or write it out. -->
 
 ### Mockups
 
