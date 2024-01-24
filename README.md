@@ -12,7 +12,7 @@ Wychwood Naturals is a small family business that focuses on the benefits of nat
 
 <!-- Why is your app needed? Background information around any pain points or other reasons. -->
 
-The idea of Wychwood Naturals came from necessity and curiousity. Necessity because sometimes store-bought products contain unfavourable ingredients for those with sensitive skin and allegies and curiousity to see if there are better options from natural resources. With Wychwood Naturals being a small family-owned business, I wanted to improve on the webpage layout as well as create a more dyanmic products products that could easily be updated when new products are available. Also, with the intent of one day having an online store front, I wanted to create the the ability to make a use profile and connect it with a shopping cart.
+The idea of Wychwood Naturals came from necessity and curiousity. Necessity because sometimes store-bought products contain unfavourable ingredients for those with sensitive skin and curiousity to see if there are better options from natural resources. With Wychwood Naturals being a small family-owned business, I wanted to improve on the webpage layout as well as create a more dyanmic products products that could easily be updated when new products are available. Also, with the intent of one day having an online store front, I wanted to create the ability to make a user profile and connect it with a shopping cart.
 
 ### User Profile
 
@@ -27,7 +27,7 @@ The idea of Wychwood Naturals came from necessity and curiousity. Necessity beca
 
 <!-- List the functionality that your app will include. These can be written as user stories or descriptions with related details. Do not describe _how_ these features are implemented, only _what_ needs to be implemented. -->
 
-- As a user, I want to be able to learn about the company and it's story, and where it's located
+- As a user, I want to be able to learn about the company, it's story, and where it's located
 - As a user, I want to be able to discover the products and learn about the ingredients
 
 - As a user, I want to be able to create an account to purchase products
@@ -62,21 +62,19 @@ Server Libraries:
 
 <!-- List any external sources of data that will be used in your app. -->
 
-Maybe a geolocation API to have a map for where the company is located (on the Contact Us page)
-
 ### Sitemap
 
 <!-- List the pages of your app with brief descriptions. You can show this visually, or write it out. -->
 
 - Home Page
 - Products
+- Product Details Page
+- Shopping Cart
 - Elements
 - Contact
-- Blog
 - Register
 - Login
-- Profile
-- Shopping Cart
+
 
 ### Mockups
 
@@ -130,7 +128,7 @@ Maybe a geolocation API to have a map for where the company is located (on the C
 
 Parameters:
 
-- 
+- - id: Product id
 
 Response:
 ```
@@ -356,3 +354,4 @@ Response:
 - Allow users to favourite products
 - Add checkout functionality
 - Add Blog page
+- Add Profile Page
