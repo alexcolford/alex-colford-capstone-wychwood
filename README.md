@@ -82,7 +82,7 @@ Server Libraries:
 
 #### Home Page
 
-![](home_page.png)
+![](home-page.png)
 
 #### Register Page
 
