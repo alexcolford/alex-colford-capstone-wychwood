@@ -133,6 +133,7 @@ Parameters:
 - 
 
 Response:
+```
 [
   {
     "id": 1,
@@ -141,6 +142,7 @@ Response:
     "price": 11,
   }
 ]
+```
 
 **GET /products/:id**
 
@@ -151,6 +153,7 @@ Parameters:
 - id: Product id
 
 Response:
+```
 [
   {
     "id": 1,
@@ -163,6 +166,7 @@ Response:
     "disclaimer": "CAUTION: Contains tree nut oils. Always do a patch test and discontinue use if irritation occurs. Not for use on young children or if pregnant/nursing. External use only on unbroken skin. Avoid eyes, mouth, and sensitive areas.",
   }
 ]
+```
 
 **GET /cart**
 
@@ -173,6 +177,7 @@ Parameters:
 - id: Cart id
 
 Response:
+```
 {
   "id": 1,
   "items": [
@@ -187,6 +192,7 @@ Response:
   "totalItems": 1,
   "totalPrice": 11,
 }
+```
 
 **GET /elements**
 
@@ -197,6 +203,7 @@ Parameters:
 - id: Element id 
 
 Response:
+```
 [
   {
     "id": 1,
@@ -204,6 +211,7 @@ Response:
     "description": "Made from seeds of Vitis vinifera, this light oil absorbs quickly to moisturise without clogging pores. It also boosts circulation which can reduce the appearance of blemishes, wrinkles, sun damage, stretch marks, cellulite and varicose veins. Soothes eczema"
   }
 ]
+```
 
 **POST /users/register**
 
@@ -249,6 +257,7 @@ Parameters:
 - id: Product id
 
 Response:
+```
 [
   {
     "id": 1,
@@ -257,6 +266,7 @@ Response:
     "price": 11,
   }
 ]
+```
 
 **DELETE /cart/items/:id**
 
@@ -267,12 +277,14 @@ Parameters:
 - id: Product id 
 
 Response:
+```
 {
 "id": 1,
 "name": "Cayenne & Ginger Muscle Salve",
 "size": 30,
 "price": 11,
 }
+```
 
 ### Auth
 
