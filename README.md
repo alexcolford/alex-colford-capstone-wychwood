@@ -100,17 +100,17 @@ Server Libraries:
 
 ![](product-details.png)
 
-#### Shopping Cart Page
-
-![](shopping-cart.png)
-
 #### Elements Page
 
 ![](elements.png)
 
-#### Contact Page
+#### Profile Page
 
-![](contact.png)
+![](profile.png)
+
+#### UI Changes
+
+![](ui-changes.png)
 
 ### Data
 
@@ -128,14 +128,12 @@ Server Libraries:
 
 Parameters:
 
-- - id: Product id
-
 Response:
 ```
 [
   {
-    "id": 1,
-    "name": "Cayenne & Ginger Muscle Salve",
+    "productId": 1,
+    "name": "Muscle Salve",
     "size": 30,
     "price": 11,
   }
@@ -148,13 +146,13 @@ Response:
 
 Parameters:
 
-- id: Product id
+- productId: Product id
 
 Response:
 ```
 [
   {
-    "id": 1,
+    "productId": 1,
     "name": "Cayenne & Ginger Muscle Salve",
     "size": 30,
     "price": 11,
@@ -166,30 +164,76 @@ Response:
 ]
 ```
 
-**GET /cart**
-
-- Get cart with added products
+**GET /products/:id/comments**
+- Retrieves comments associated with a specific product
 
 Parameters:
 
-- id: Cart id
+- commentId: Comment id
 
 Response:
 ```
-{
-  "id": 1,
-  "items": [
-    {
-    "id": 1,
-    "name": "Cayenne & Ginger Muscle Salve",
+[
+  {
+    "commentId": 1,
+    "name": "Jane Doe"
+    "comment": "What a great product!"
+    "timestamp": 1530744795832,
+
+  }
+]
+
+```
+
+**POST /products/:id/comments**
+- Adds a new comment to the specific product
+
+Parameters:
+
+- userId: User id
+- name: User name associated with logged in user
+- comment: User's comment
+
+Response:
+```
+[
+  {
+    "commentId": 1,
+    "message": "Comment added successfully"
+  }
+]
+
+```
+
+
+
+**POST /products/:id/favourite**
+
+- Favourite a product
+
+Response:
+```
+[
+  {
+    "message": "Product favourited",
+    "favourited": true,
+  }
+]
+```
+
+**GET /users/:id/favourites**
+- Get list of favourited products by user
+
+Response:
+```
+[
+   {
+    "productId": 1,
+    "name": "Muscle Salve",
     "size": 30,
-    "price": 11,
-    "quantity": 1,
-    }
-  ]
-  "totalItems": 1,
-  "totalPrice": 11,
-}
+    "price": 11
+  },
+]
 ```
 
 **GET /elements**
@@ -198,13 +242,11 @@ Response:
 
 Parameters:
 
-- id: Element id 
-
 Response:
 ```
 [
   {
-    "id": 1,
+    "elementId": 1,
     "name": "Grapeseed Oil",
     "description": "Made from seeds of Vitis vinifera, this light oil absorbs quickly to moisturise without clogging pores. It also boosts circulation which can reduce the appearance of blemishes, wrinkles, sun damage, stretch marks, cellulite and varicose veins. Soothes eczema"
   }
@@ -217,8 +259,7 @@ Response:
 
 Parameters:
 
-- first_name: user's first name
-- last_name: user's last name
+- name: user's first and last name
 - email: user's email
 - password: user's provided password
 - confirm_password: user's provided password again to match password
@@ -246,43 +287,31 @@ Response:
 }
 ```
 
-**POST /cart/items**
-
-- Add products to cart
-
-Parameters:
-
-- id: Product id
-
-Response:
-```
-[
-  {
-    "id": 1,
-    "name": "Cayenne & Ginger Muscle Salve",
-    "size": 30,
-    "price": 11,
-  }
-]
-```
-
-**DELETE /cart/items/:id**
-
-- Delete products from cart
+**PUT /user/:id**
+- Update account information
 
 Parameters:
-
-- id: Product id 
+- name: user's first and last name
+- email: user's email
+- password: user's provided password
+- confirm_password: user's provided password again to match password
 
 Response:
 ```
 {
-"id": 1,
-"name": "Cayenne & Ginger Muscle Salve",
-"size": 30,
-"price": 11,
+  "message": "Account updated successfully"
 }
+
+**DELETE /user/:id**
+- Delete user account
+
+Response:
 ```
+{
+  "message": "Account deleted successfully"
+}
+
+
 
 ### Auth
 
@@ -321,9 +350,6 @@ Response:
     - Implement Elements page
     - Create GET /elements endpoint
 
-- Feature: Contact Page
-    - Implement Contact page
-
 - Feature: Create Account
     - Implement Register Page and form
     - Create POST /users/register endpoint
@@ -331,12 +357,6 @@ Response:
 - Feature: Login 
     - Implement Login Popup and form
     - Create POST /users/login endpoint
-
-- Feature: Shopping Cart
-    - Implement Shopping Cart page
-    - Create GET /cart endpoint
-    - Create POST /cart/items endpoint
-    - Create DELETE /cart/items/:id endpoint
 
 - Feature: Implement JWT tokens
     - Server: Update expected requests / responses on protected endpoints
