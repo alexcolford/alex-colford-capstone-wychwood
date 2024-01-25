@@ -31,7 +31,7 @@ The idea of Wychwood Naturals came from necessity and curiousity. Necessity beca
 - As a user, I want to be able to discover the products and learn about the ingredients
 
 - As a user, I want to be able to create an account 
-- As a user, I want to be able to login to my account in order to add and remove products from my favourites list
+- As a user, I want to be able to login to my account in order to add products to my favourites list
 
 - As a logged in user, I want to be able to add products to a favourite list
 - As a logged in user, I want to be able to add a comment on the product details page
@@ -223,7 +223,7 @@ Response:
 ]
 ```
 
-**GET /users/:id/favourites**
+**GET /users/:id/favourite**
 - Get list of favourited products by user
 
 Response:
@@ -383,8 +383,6 @@ Response:
 
 <!-- Your project will be marked based on what you committed to in the above document. Under nice-to-haves, you can list any additional features you may complete if you have extra time, or after finishing. -->
 
-- Add 'Leave a Review' to Contact Page
-- Allow users to favourite products
-- Add checkout functionality
+- Add Contact Us Page
 - Add Blog page
-- Add Profile Page
+
