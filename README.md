@@ -30,11 +30,14 @@ The idea of Wychwood Naturals came from necessity and curiousity. Necessity beca
 - As a user, I want to be able to learn about the company, it's story, and where it's located
 - As a user, I want to be able to discover the products and learn about the ingredients
 
-- As a user, I want to be able to create an account to purchase products
-- As a user, I want to be able to login to my account in order to utilize the store front
+- As a user, I want to be able to create an account 
+- As a user, I want to be able to login to my account in order to add and remove products from my favourites list
 
-- As a logged in user, I want to be able to add products to a shopping cart
-- As a logged in user, I want to view my cart and see a total at checkout
+- As a logged in user, I want to be able to add products to a favourite list
+- As a logged in user, I want to be able to add a comment on the product details page
+- As a logged in user, I want to view my profile page to see my favourite list
+- As a logged in user, I want to be able to update my account information
+- As a logged in user, I want to be able to delete my account
 
 ## Implementation
 
@@ -69,11 +72,10 @@ Server Libraries:
 - Home Page
 - Products
 - Product Details Page
-- Shopping Cart
 - Elements
-- Contact
 - Register
 - Login
+- Profile
 
 
 ### Mockups
@@ -253,7 +255,7 @@ Response:
 ]
 ```
 
-**POST /users/register**
+**POST /user/register**
 
 - Add a user account
 
@@ -271,7 +273,7 @@ Response:
 }
 ```
 
-**POST /users/login**
+**POST /user/login**
 
 - Login a user
 
@@ -301,6 +303,7 @@ Response:
 {
   "message": "Account updated successfully"
 }
+```
 
 **DELETE /user/:id**
 - Delete user account
@@ -310,6 +313,7 @@ Response:
 {
   "message": "Account deleted successfully"
 }
+```
 
 
 
@@ -345,6 +349,9 @@ Response:
 - Feature: Product Details Page
     - Implement Product Details page
     - Create GET /products/:id endpoint
+    - Create GET /products/:id/comments endpoint
+    - Create POST /products/:id/comments endpoint
+    - Create POST /products/:id/favourite endpoint
 
 - Feature: Elements Page
     - Implement Elements page
@@ -352,11 +359,17 @@ Response:
 
 - Feature: Create Account
     - Implement Register Page and form
-    - Create POST /users/register endpoint
+    - Create POST /user/register endpoint
 
 - Feature: Login 
     - Implement Login Popup and form
-    - Create POST /users/login endpoint
+    - Create POST /user/login endpoint
+
+- Feature: Profile
+    - Implement Profile Page
+    - Create GET /users/:id/favourite endpoint
+    - Create PUT /user/:id endpoint
+    - Create DELETE /user/:id endpoint
 
 - Feature: Implement JWT tokens
     - Server: Update expected requests / responses on protected endpoints
