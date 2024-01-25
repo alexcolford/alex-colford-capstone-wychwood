@@ -12,7 +12,7 @@ Wychwood Naturals is a small family business that focuses on the benefits of nat
 
 <!-- Why is your app needed? Background information around any pain points or other reasons. -->
 
-The idea of Wychwood Naturals came from necessity and curiousity. Necessity because sometimes store-bought products contain unfavourable ingredients for those with sensitive skin and curiousity to see if there are better options from natural resources. With Wychwood Naturals being a small family-owned business, I wanted to improve on the webpage layout as well as create a more dyanmic products products that could easily be updated when new products are available. Also, with the intent of one day having an online store front, I wanted to create the ability to make a user profile and connect it with a shopping cart.
+The idea of Wychwood Naturals came from necessity and curiousity. Necessity because sometimes store-bought products contain unfavourable ingredients for those with sensitive skin and curiousity to see if there are better options from natural resources. With Wychwood Naturals being a small family-owned business, I wanted to improve on the webpage layout as well as create a more dyanmic products page that could easily be updated when new products are available. 
 
 ### User Profile
 
