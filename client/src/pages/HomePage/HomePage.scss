@@ -1,0 +1,21 @@
+@use "../../styles/partials/globals" as *;
+
+.main {
+  display: flex;
+  flex-direction: column;
+}
+
+.hero {
+  height: 30vh;
+  background-color: $color-green;
+}
+
+.about {
+  height: 10vh;
+  background-color: $color-white;
+}
+
+.story {
+  height: 40vh;
+  background-color: $color-light-green;
+}

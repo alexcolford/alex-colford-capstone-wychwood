@@ -1,0 +1,35 @@
+@use "../../styles/partials/globals" as *;
+
+.footer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: $color-dark-green;
+  padding: 16px;
+
+  @include tablet {
+    padding: 32px;
+  }
+
+  &__copyright {
+    font-size: 8px;
+    color: $color-white;
+
+    @include tablet {
+      font-size: 16px;
+    }
+  }
+}
+
+.footer-container {
+  display: flex;
+  justify-content: space-around;
+  width: 50%;
+  padding-bottom: 16px;
+
+  @include tablet {
+    width: 25%;
+    padding-bottom: 32px;
+  }
+}

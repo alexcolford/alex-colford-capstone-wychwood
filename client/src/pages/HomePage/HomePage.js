@@ -1,8 +1,12 @@
+import "./HomePage.scss";
+
 const HomePage = () => {
   return (
-    <>
-      <p>Home Page</p>
-    </>
+    <main className="main">
+      <section className="hero"></section>
+      <section className="about"></section>
+      <section className="story"></section>
+    </main>
   );
 };
 
