@@ -1,0 +1,14 @@
+@use "./fonts" as *;
+@use "./mixins" as *;
+@use "./variables" as *;
+@forward "./mixins";
+@forward "./variables";
+@forward "./fonts";
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  @include montserrat;
+  font-weight: 400;
+}
