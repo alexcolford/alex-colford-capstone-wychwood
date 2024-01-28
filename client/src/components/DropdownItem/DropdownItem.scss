@@ -1,0 +1,17 @@
+@use "../../styles/partials/globals" as *;
+
+.link {
+  color: black;
+  text-decoration: none;
+  list-style: none;
+  //   padding: 8px;
+}
+
+.link-item {
+  padding: 8px;
+
+  &:hover {
+    background-color: $color-light-green;
+    color: $color-dark-green;
+  }
+}

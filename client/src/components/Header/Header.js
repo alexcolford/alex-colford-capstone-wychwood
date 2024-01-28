@@ -1,7 +1,12 @@
+import { Link } from "react-router-dom";
+import { useState } from "react";
 import "./Header.scss";
 import logo from "../../assets/logo/logo.png";
+import DropdownItem from "../DropdownItem/DropdownItem";
 
 function Header() {
+  const [open, setOpen] = useState(false);
+
   return (
     <header className="header">
       <div className="header-container">
@@ -14,26 +19,54 @@ function Header() {
       <nav className="nav">
         <div className="nav-container">
           <ul className="nav-container__list">
-            <li className="nav-container__list-item nav-container__list-item--mobile">
-              MENU
-            </li>
-            <li className="nav-container__list-item nav-container__list-item--tablet">
-              HOME
-            </li>
-            <li className="nav-container__list-item nav-container__list-item--tablet">
-              PRODUCTS
-            </li>
-            <li className="nav-container__list-item nav-container__list-item--tablet">
-              ELEMENTS
-            </li>
+            <div className="nav-container__menu">
+              <li
+                className="nav-container__list-item nav-container__list-item--mobile nav-container__menu-trigger"
+                onClick={() => {
+                  setOpen(!open);
+                }}
+              >
+                MENU
+              </li>
+              <div
+                className={`nav-container__menu-dropdown ${
+                  open ? "active" : "inactive"
+                }`}
+              >
+                <ul>
+                  <DropdownItem path={"/"} text={"HOME"} />
+                  <DropdownItem path={"/products"} text={"PRODUCTS"} />
+                  <DropdownItem path={"/elements"} text={"ELEMENTS"} />
+                </ul>
+              </div>
+            </div>
+            <Link className="nav-container__list-link">
+              <li className="nav-container__list-item nav-container__list-item--tablet">
+                HOME
+              </li>
+            </Link>
+            <Link className="nav-container__list-link">
+              <li className="nav-container__list-item nav-container__list-item--tablet">
+                PRODUCTS
+              </li>
+            </Link>
+            <Link className="nav-container__list-link">
+              <li className="nav-container__list-item nav-container__list-item--tablet">
+                ELEMENTS
+              </li>
+            </Link>
           </ul>
         </div>
         <div className="nav-container">
           <ul className="nav-container__list">
-            <li className="nav-container__list-item">REGISTER</li>
-            <li className="nav-container__list-item nav-container__list-item--login">
-              LOGIN
-            </li>
+            <Link className="nav-container__list-link">
+              <li className="nav-container__list-item">REGISTER</li>
+            </Link>
+            <Link className="nav-container__list-link">
+              <li className="nav-container__list-item nav-container__list-item--login">
+                LOGIN
+              </li>
+            </Link>
           </ul>
         </div>
       </nav>
