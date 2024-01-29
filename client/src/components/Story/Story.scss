@@ -10,6 +10,11 @@
     @include subheader-mobile;
     color: $color-dark-green;
     padding-bottom: 8px;
+
+    @include tablet {
+      @include subheader-desktop-tablet;
+      padding-bottom: 24px;
+    }
   }
 
   &__title {
@@ -17,6 +22,11 @@
     color: $color-dark-green;
     padding-bottom: 8px;
     text-align: center;
+
+    @include tablet {
+      @include header-desktop-tablet;
+      padding-bottom: 24px;
+    }
   }
 
   &__paragraph {
@@ -24,5 +34,10 @@
     color: $color-dark-green;
     padding-bottom: 8px;
     text-align: center;
+
+    @include tablet {
+      @include body-desktop-tablet;
+      padding-bottom: 16px;
+    }
   }
 }

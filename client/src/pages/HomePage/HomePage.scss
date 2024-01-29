@@ -9,25 +9,42 @@
 .hero {
   display: flex;
   height: 200px;
-  padding: 24px 16px;
+  padding: 16px;
   background-color: $color-light-green;
   border-radius: 20px;
   margin: 0 16px 16px 16px;
+
+  @include tablet {
+    height: 400px;
+    padding: 32px;
+    margin: 0 32px 16px 32px;
+  }
 }
 
 .about {
   display: flex;
   height: 200px;
-  padding: 24px 16px;
+  padding: 16px;
   background-color: $color-lightest-green;
   border-radius: 20px;
   margin: 0 16px 16px 16px;
+
+  @include tablet {
+    height: 400px;
+    padding: 32px;
+    margin: 0 32px 16px 32px;
+  }
 }
 
 .story {
   display: flex;
-  padding: 24px 16px;
+  padding: 16px;
   background-color: $color-light-green;
   border-radius: 20px;
   margin: 0 16px 16px 16px;
+
+  @include tablet {
+    padding: 32px;
+    margin: 0 32px 16px 32px;
+  }
 }

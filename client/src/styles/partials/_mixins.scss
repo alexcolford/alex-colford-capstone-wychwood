@@ -23,11 +23,6 @@
   line-height: 1.25rem;
 }
 
-@mixin section-header-mobile {
-  font-size: 0.75rem;
-  line-height: 1.25rem;
-}
-
 @mixin subheader-mobile {
   font-size: 0.75rem;
   line-height: 1.125rem;
@@ -38,13 +33,13 @@
   line-height: 1.125rem;
 }
 
-@mixin labels-buttons-mobile {
-  font-size: 0.625rem;
+@mixin buttons-mobile {
+  font-size: 0.75rem;
   line-height: 1.25rem;
 }
 
-@mixin page-header-desktop-tablet {
-  font-size: 2.063rem;
+@mixin header-desktop-tablet {
+  font-size: 2.5rem;
   line-height: 2.75rem;
 }
 
@@ -53,22 +48,17 @@
   line-height: 1.25rem;
 }
 
-@mixin section-header-desktop-tablet {
-  font-size: 0.75rem;
-  line-height: 1.25rem;
-}
-
 @mixin subheader-desktop-tablet {
-  font-size: 0.875rem;
+  font-size: 1.5rem;
   line-height: 1.375rem;
 }
 
-@mixin body-copy-desktop-tablet {
-  font-size: 0.875rem;
+@mixin body-desktop-tablet {
+  font-size: 1rem;
   line-height: 1.375rem;
 }
 
-@mixin labels-buttons-desktop-tablet {
-  font-size: 0.75rem;
+@mixin buttons-desktop-tablet {
+  font-size: 1rem;
   line-height: 1.25rem;
 }
