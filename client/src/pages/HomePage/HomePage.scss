@@ -3,19 +3,31 @@
 .main {
   display: flex;
   flex-direction: column;
+  // background-color: $color-lightest-green;
 }
 
 .hero {
-  height: 30vh;
-  background-color: $color-green;
+  display: flex;
+  height: 200px;
+  padding: 24px 16px;
+  background-color: $color-light-green;
+  border-radius: 20px;
+  margin: 0 16px 16px 16px;
 }
 
 .about {
-  height: 10vh;
-  background-color: $color-white;
+  display: flex;
+  height: 200px;
+  padding: 24px 16px;
+  background-color: $color-lightest-green;
+  border-radius: 20px;
+  margin: 0 16px 16px 16px;
 }
 
 .story {
-  height: 40vh;
+  display: flex;
+  padding: 24px 16px;
   background-color: $color-light-green;
+  border-radius: 20px;
+  margin: 0 16px 16px 16px;
 }

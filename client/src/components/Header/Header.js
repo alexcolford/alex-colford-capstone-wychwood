@@ -10,11 +10,13 @@ function Header() {
   return (
     <header className="header">
       <div className="header-container">
-        <img
-          className="header-container__logo"
-          src={logo}
-          alt="wychwood-logo"
-        />
+        <Link to={"/"}>
+          <img
+            className="header-container__logo"
+            src={logo}
+            alt="wychwood-logo"
+          />
+        </Link>
       </div>
       <nav className="nav">
         <div className="nav-container">
@@ -40,17 +42,17 @@ function Header() {
                 </ul>
               </div>
             </div>
-            <Link className="nav-container__list-link">
+            <Link to={"/"} className="nav-container__list-link">
               <li className="nav-container__list-item nav-container__list-item--tablet">
                 HOME
               </li>
             </Link>
-            <Link className="nav-container__list-link">
+            <Link to={"/products"} className="nav-container__list-link">
               <li className="nav-container__list-item nav-container__list-item--tablet">
                 PRODUCTS
               </li>
             </Link>
-            <Link className="nav-container__list-link">
+            <Link to={"/elements"} className="nav-container__list-link">
               <li className="nav-container__list-item nav-container__list-item--tablet">
                 ELEMENTS
               </li>
@@ -59,7 +61,7 @@ function Header() {
         </div>
         <div className="nav-container">
           <ul className="nav-container__list">
-            <Link className="nav-container__list-link">
+            <Link to={"/register"} className="nav-container__list-link">
               <li className="nav-container__list-item">REGISTER</li>
             </Link>
             <Link className="nav-container__list-link">

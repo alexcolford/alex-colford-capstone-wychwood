@@ -13,8 +13,8 @@
   }
 }
 
-@mixin page-header-mobile {
-  font-size: 1.5rem;
+@mixin header-mobile {
+  font-size: 1.25rem;
   line-height: 2rem;
 }
 
@@ -24,17 +24,17 @@
 }
 
 @mixin section-header-mobile {
-  font-size: 1rem;
+  font-size: 0.75rem;
   line-height: 1.25rem;
 }
 
 @mixin subheader-mobile {
-  font-size: 0.813rem;
+  font-size: 0.75rem;
   line-height: 1.125rem;
 }
 
-@mixin body-copy-mobile {
-  font-size: 0.813rem;
+@mixin body-mobile {
+  font-size: 0.75rem;
   line-height: 1.125rem;
 }
 
