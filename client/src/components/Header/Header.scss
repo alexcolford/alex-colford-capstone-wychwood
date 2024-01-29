@@ -16,7 +16,7 @@
 
   @include desktopplus {
     max-width: 81rem;
-    margin: 0 auto 32px;
+    margin: auto;
   }
 }
 
@@ -89,6 +89,7 @@
     top: 36px;
     left: -8px;
     background-color: white;
+    z-index: 3;
 
     @include tablet {
       display: none;

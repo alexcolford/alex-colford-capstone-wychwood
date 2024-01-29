@@ -12,6 +12,11 @@
     padding: 32px;
   }
 
+  @include desktopplus {
+    max-width: 81rem;
+    margin: auto;
+  }
+
   &__copyright {
     font-size: 8px;
     color: $color-white;
