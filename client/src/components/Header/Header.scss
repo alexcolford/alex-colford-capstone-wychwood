@@ -9,6 +9,15 @@
   @include tablet {
     padding: 32px 48px;
   }
+
+  @include tablet {
+    padding: 64px 80px;
+  }
+
+  @include desktopplus {
+    max-width: 81rem;
+    margin: 0 auto 32px;
+  }
 }
 
 .header-container {

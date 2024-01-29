@@ -13,6 +13,11 @@
     padding-right: 32px;
   }
 
+  @include desktop {
+    width: 40%;
+    padding-right: 64px;
+  }
+
   &__subtitle {
     @include subheader-mobile;
     color: $color-dark-green;
@@ -58,6 +63,10 @@
   &__image-container {
     position: relative;
     width: 50%;
+
+    @include desktop {
+      width: 40%;
+    }
   }
 
   &__image {

@@ -19,6 +19,17 @@
     padding: 32px;
     margin: 0 32px 16px 32px;
   }
+
+  @include desktop {
+    padding: 64px;
+    margin: 0 64px 32px 64px;
+    justify-content: space-around;
+  }
+
+  @include desktopplus {
+    max-width: 81rem;
+    margin: 0 auto 32px;
+  }
 }
 
 .about {
@@ -34,6 +45,17 @@
     padding: 32px;
     margin: 0 32px 16px 32px;
   }
+
+  @include desktop {
+    padding: 64px;
+    margin: 0 64px 32px 64px;
+    justify-content: space-around;
+  }
+
+  @include desktopplus {
+    max-width: 81rem;
+    margin: 0 auto 32px;
+  }
 }
 
 .story {
@@ -46,5 +68,15 @@
   @include tablet {
     padding: 32px;
     margin: 0 32px 16px 32px;
+  }
+
+  @include desktop {
+    padding: 64px;
+    margin: 0 64px 32px 64px;
+  }
+
+  @include desktopplus {
+    max-width: 81rem;
+    margin: 0 auto 32px;
   }
 }

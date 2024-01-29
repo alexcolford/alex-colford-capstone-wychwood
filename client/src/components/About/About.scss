@@ -13,6 +13,11 @@
     padding-right: 32px;
   }
 
+  @include desktop {
+    width: 40%;
+    padding-right: 64px;
+  }
+
   &__subtitle {
     @include subheader-mobile;
     color: $color-dark-green;
@@ -34,14 +39,6 @@
     @include tablet {
       @include header-desktop-tablet;
       padding-bottom: 24px;
-    }
-  }
-
-  &__paragraph {
-    @include body-mobile;
-
-    @include tablet {
-      @include body-desktop-tablet;
     }
   }
 
@@ -70,6 +67,10 @@
     display: flex;
     align-items: center;
     width: 50%;
+
+    @include desktop {
+      width: 40%;
+    }
   }
 
   &__image {
