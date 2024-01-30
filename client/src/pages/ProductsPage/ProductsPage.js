@@ -4,7 +4,7 @@ import ProductComponent from "../../components/ProductComponent/ProductCompnent"
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 
-const Products = () => {
+const ProductsPage = () => {
   const [products, setProducts] = useState(null);
 
   const getProducts = async () => {
@@ -32,23 +32,11 @@ const Products = () => {
     <>
       <section>
         {products.map((product) => {
-          return (
-            <ProductComponent
-              key={product.id}
-              productId={product.id}
-              name={product.name}
-              size={product.size}
-              price={product.price}
-              description={product.description}
-              ingredients={product.ingredients}
-              instructions={product.instructions}
-              image_path={product.image_path}
-            />
-          );
+          return <ProductComponent product={product} />;
         })}
       </section>
     </>
   );
 };
 
-export default Products;
+export default ProductsPage;

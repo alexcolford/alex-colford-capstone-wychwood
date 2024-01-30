@@ -1,0 +1,94 @@
+@use "../../styles/partials/globals" as *;
+
+.details {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 16px;
+  padding: 16px;
+  background-color: $color-light-green;
+  border-radius: 20px;
+
+  &__image {
+    width: 250px;
+    height: 250px;
+    border-radius: 20px;
+    margin-bottom: 16px;
+  }
+}
+
+.details-container {
+  &__name {
+    @include header-mobile;
+    background-color: $color-lightest-green;
+    border-radius: 20px;
+    padding: 16px;
+    margin-bottom: 16px;
+    text-align: center;
+  }
+
+  &__section {
+    display: flex;
+    justify-content: space-around;
+    margin-bottom: 16px;
+  }
+
+  &__size {
+    background-color: $color-lightest-green;
+    border-radius: 20px;
+    padding: 16px;
+    width: 40%;
+    text-align: center;
+    @include subheader-mobile;
+  }
+
+  &__price {
+    background-color: $color-lightest-green;
+    border-radius: 20px;
+    padding: 16px;
+    width: 40%;
+    text-align: center;
+    @include subheader-mobile;
+  }
+
+  &__wrapper {
+    background-color: $color-lightest-green;
+    border-radius: 20px;
+    padding: 16px;
+    margin-bottom: 16px;
+  }
+
+  &__title {
+    font-size: 1rem;
+  }
+
+  &__description {
+    @include body-mobile;
+  }
+
+  &__instructions {
+    @include body-mobile;
+  }
+
+  &__ingredients {
+    @include body-mobile;
+  }
+
+  &__button {
+    @include buttons-mobile;
+    padding: 8px;
+    background-color: $color-light-green;
+    color: $color-dark-green;
+    border: 1px solid $color-dark-green;
+
+    @include tablet {
+      @include buttons-desktop-tablet;
+    }
+
+    &:hover {
+      background-color: $color-dark-green;
+      color: $color-lightest-green;
+      border: 1px solid $color-lightest-green;
+    }
+  }
+}

@@ -1,26 +1,21 @@
-import { Link } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import "./ProductComponent.scss";
 
-const ProductComponent = ({
-  productId,
-  name,
-  size,
-  price,
-  image_path,
-  description,
-  ingredients,
-  instructions,
-}) => {
+const ProductComponent = ({ product }) => {
   return (
     <>
-      <Link className="product__link" to={`/products/${productId}`}>
+      <Link className="product__link" to={`/products/${product.id}`}>
         <div className="product">
-          <img className="product__image" src={image_path} alt={name} />
+          <img
+            className="product__image"
+            src={product.image_path}
+            alt={product.name}
+          />
           <div className="product-details">
-            <p className="product-details__name">{name}</p>
+            <p className="product-details__name">{product.name}</p>
             <div className="product-details__section">
-              <p className="product-details__size">{size}</p>
-              <p className="product-details__price">${price}</p>
+              <p className="product-details__size">{product.size}</p>
+              <p className="product-details__price">${product.price}</p>
             </div>
           </div>
         </div>
