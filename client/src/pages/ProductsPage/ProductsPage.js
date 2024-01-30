@@ -30,11 +30,11 @@ const ProductsPage = () => {
   }
   return (
     <>
-      <section>
+      <div className="product-container">
         {products.map((product) => {
-          return <ProductComponent product={product} />;
+          return <ProductComponent key={product.id} product={product} />;
         })}
-      </section>
+      </div>
     </>
   );
 };

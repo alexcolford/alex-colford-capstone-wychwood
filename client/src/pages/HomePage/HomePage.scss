@@ -13,6 +13,7 @@
   background-color: $color-light-green;
   border-radius: 20px;
   margin: 0 16px 16px 16px;
+  box-shadow: 5px 5px 5px $color-dark-green;
 
   @include tablet {
     height: 400px;
@@ -21,7 +22,6 @@
   }
 
   @include desktop {
-    padding: 64px;
     margin: 0 64px 32px 64px;
     justify-content: space-around;
   }
@@ -39,6 +39,7 @@
   background-color: $color-lightest-green;
   border-radius: 20px;
   margin: 0 16px 16px 16px;
+  box-shadow: 5px 5px 5px $color-dark-green;
 
   @include tablet {
     height: 400px;
@@ -47,7 +48,6 @@
   }
 
   @include desktop {
-    padding: 64px;
     margin: 0 64px 32px 64px;
     justify-content: space-around;
   }
@@ -64,6 +64,7 @@
   background-color: $color-light-green;
   border-radius: 20px;
   margin: 0 16px 16px 16px;
+  box-shadow: 5px 5px 5px $color-dark-green;
 
   @include tablet {
     padding: 32px;

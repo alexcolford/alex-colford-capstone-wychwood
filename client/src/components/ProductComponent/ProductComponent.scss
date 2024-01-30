@@ -1,16 +1,37 @@
 @use "../../styles/partials/globals" as *;
 
 .product {
-  //   width: 100%;
   height: 150px;
   display: flex;
   background-color: $color-light-green;
   border-radius: 20px;
   padding: 8px;
-  margin: 0 16px 16px 16px;
+  margin-bottom: 16px;
+  box-shadow: 5px 5px 5px $color-dark-green;
+
+  @include tablet {
+    height: 200px;
+    padding: 16px;
+    margin: 0 0 32px 32px;
+  }
+
+  @include desktop {
+    height: 300px;
+    padding: 32px;
+    // margin: 0 0 64px 64px;
+  }
+
+  @include desktopplus {
+    max-width: 81rem;
+    // margin: 0 auto;
+  }
 
   &__link {
     text-decoration: none;
+
+    @include tablet {
+      width: 50%;
+    }
   }
 
   &__image {
@@ -19,6 +40,7 @@
     object-fit: cover;
     // object-position: center;
     border-radius: 20px;
+    box-shadow: 5px 5px 5px $color-dark-green;
   }
 }
 
@@ -28,7 +50,6 @@
   justify-content: center;
   width: 60%;
   color: $color-dark-green;
-  // background-color: $color-lightest-green;
 
   &__name {
     text-align: center;
@@ -36,12 +57,34 @@
     border-radius: 20px;
     padding: 8px;
     margin-left: 8px;
+    font-size: 1rem;
+    box-shadow: 5px 5px 5px $color-dark-green;
+
+    @include tablet {
+      padding: 16px;
+      margin-left: 16px;
+      font-size: 1.25rem;
+    }
+
+    @include desktop {
+      padding: 32px;
+      margin-left: 32px;
+      font-size: 1.5rem;
+    }
   }
 
   &__section {
     display: flex;
     width: 100%;
     padding: 16px 0 0 8px;
+
+    @include tablet {
+      padding: 16px 0 0 16px;
+    }
+
+    @include desktop {
+      padding: 16px 0 0 32px;
+    }
   }
 
   &__size {
@@ -50,6 +93,18 @@
     background-color: $color-lightest-green;
     border-radius: 20px;
     padding: 8px;
+    font-size: 0.75rem;
+    box-shadow: 5px 5px 5px $color-dark-green;
+
+    @include tablet {
+      padding: 16px;
+      font-size: 1rem;
+    }
+
+    @include desktop {
+      padding: 32px;
+      font-size: 1.25rem;
+    }
   }
 
   &__price {
@@ -59,5 +114,19 @@
     border-radius: 20px;
     padding: 8px;
     margin-left: 8px;
+    font-size: 0.75rem;
+    box-shadow: 5px 5px 5px $color-dark-green;
+
+    @include tablet {
+      padding: 16px;
+      margin-left: 16px;
+      font-size: 1rem;
+    }
+
+    @include desktop {
+      padding: 32px;
+      margin-left: 32px;
+      font-size: 1.25rem;
+    }
   }
 }

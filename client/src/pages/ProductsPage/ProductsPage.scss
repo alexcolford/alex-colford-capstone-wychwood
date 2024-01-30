@@ -1,0 +1,22 @@
+@use "../../styles/partials/globals" as *;
+
+.product-container {
+  display: flex;
+  flex-direction: column;
+  margin: 0 16px;
+
+  @include tablet {
+    flex-direction: row;
+    flex-wrap: wrap;
+    margin: 0 32px 0 0;
+  }
+
+  @include desktop {
+    margin: 0 64px 0 32px;
+  }
+
+  @include desktopplus {
+    max-width: 81rem;
+    margin: 0 auto;
+  }
+}
