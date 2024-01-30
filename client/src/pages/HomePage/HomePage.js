@@ -1,4 +1,3 @@
-import storyImage from "../../assets/images/photo-3.jpg";
 import Hero from "../../components/Hero/Hero";
 import About from "../../components/About/About";
 import Story from "../../components/Story/Story";
