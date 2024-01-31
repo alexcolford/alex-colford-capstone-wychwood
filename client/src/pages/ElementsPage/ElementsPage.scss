@@ -1,0 +1,139 @@
+@use "../../styles/partials/globals" as *;
+
+.elements-heading {
+  display: flex;
+  flex-direction: column;
+  margin: 16px;
+  padding: 16px;
+  background-color: $color-light-green;
+  border-radius: 20px;
+  box-shadow: 5px 5px 5px $color-dark-green;
+  color: $color-dark-green;
+
+  @include tablet {
+    flex-direction: row;
+    margin: 32px;
+    padding: 32px;
+  }
+
+  @include desktop {
+    margin: 64px;
+    padding: 64px;
+  }
+
+  @include desktopplus {
+    max-width: 81rem;
+    margin: 0 auto 64px;
+  }
+
+  &__container {
+    @include tablet {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      width: 50%;
+      padding-right: 32px;
+    }
+
+    @include desktop {
+      padding-right: 64px;
+    }
+  }
+
+  &__subtitle {
+    @include subheader-mobile;
+    text-align: center;
+    padding-bottom: 16px;
+
+    @include tablet {
+      @include subheader-desktop-tablet;
+      padding-bottom: 24px;
+    }
+
+    @include desktop {
+      padding-bottom: 32px;
+    }
+  }
+
+  &__title {
+    @include header-mobile;
+    text-align: center;
+    padding-bottom: 16px;
+
+    @include tablet {
+      @include header-desktop-tablet;
+      padding-bottom: 24px;
+    }
+
+    @include desktop {
+      padding-bottom: 32px;
+    }
+  }
+
+  &__paragraph {
+    @include body-mobile;
+    padding-bottom: 16px;
+
+    @include tablet {
+      @include body-desktop-tablet;
+      padding-bottom: 24px;
+    }
+
+    @include desktop {
+      padding-bottom: 32px;
+    }
+  }
+
+  &__image {
+    border-radius: 20px;
+    box-shadow: 5px 5px 5px $color-dark-green;
+
+    @include tablet {
+      width: 50%;
+    }
+  }
+}
+
+.element-container {
+  display: flex;
+  flex-direction: column;
+  margin: 16px;
+  padding: 16px;
+  background-color: $color-light-green;
+  border-radius: 20px;
+  box-shadow: 5px 5px 5px $color-dark-green;
+  color: $color-dark-green;
+
+  @include tablet {
+    margin: 32px;
+    padding: 32px;
+  }
+
+  @include desktop {
+    margin: 64px;
+    padding: 64px;
+  }
+
+  @include desktopplus {
+    max-width: 81rem;
+    margin: 0 auto 64px;
+  }
+
+  &__title {
+    @include header-mobile;
+    padding-bottom: 8px;
+    margin-bottom: 16px;
+    border-bottom: 1px solid $color-dark-green;
+
+    @include tablet {
+      @include header-desktop-tablet;
+      padding-bottom: 16px;
+      margin-bottom: 32px;
+    }
+
+    @include desktop {
+      padding-bottom: 32px;
+      margin-bottom: 48px;
+    }
+  }
+}

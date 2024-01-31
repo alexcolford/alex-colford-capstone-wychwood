@@ -1,0 +1,39 @@
+@use "../../styles/partials/globals" as *;
+
+.element {
+  padding: 16px;
+  margin-bottom: 16px;
+  background-color: $color-lightest-green;
+  border-radius: 20px;
+  box-shadow: 5px 5px 5px $color-dark-green;
+  color: $color-dark-green;
+
+  @include tablet {
+    padding: 32px;
+    margin-bottom: 32px;
+  }
+}
+
+.element-details {
+  &__name {
+    @include subheader-mobile;
+    border-bottom: 1px solid $color-dark-green;
+    padding-bottom: 8px;
+    font-weight: 600;
+
+    @include tablet {
+      @include subheader-desktop-tablet;
+      padding-bottom: 16px;
+    }
+  }
+
+  &__description {
+    @include body-mobile;
+    padding-top: 8px;
+
+    @include tablet {
+      @include body-desktop-tablet;
+      padding-top: 16px;
+    }
+  }
+}

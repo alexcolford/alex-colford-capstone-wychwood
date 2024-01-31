@@ -70,7 +70,7 @@ const ProductDetailsPage = () => {
     getUsers();
   }, []);
 
-  if (!productDetails || !comments) {
+  if (!productDetails || !comments || !users) {
     return <div>Loading</div>;
   }
 

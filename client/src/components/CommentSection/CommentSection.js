@@ -5,6 +5,10 @@ function CommentSection({ comments, users }) {
     return <p>No comments available.</p>;
   }
 
+  if (!users) {
+    return <p>Cannot fetch users.</p>;
+  }
+
   const formattedTimestamp = (created_at) => {
     const date = new Date(created_at);
     const month = date.getMonth() + 1;
@@ -54,6 +58,7 @@ function CommentSection({ comments, users }) {
                   {comment.title}
                 </h4>
                 <div className="comment-section__details">
+                  {/* i sometimes get an error - Cannot read properties of undefined (reading "name"); doesn't always happen */}
                   <p className="comment-section__details-name">{user.name}</p>
                   <p className="comment-section__details-timestamp">
                     {formattedTimestamp(comment.created_at)}
