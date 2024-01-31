@@ -2,9 +2,12 @@ import "./ProductDetailsPage.scss";
 import axios from "axios";
 import { useState, useEffect } from "react";
 import { Link, useParams } from "react-router-dom";
+import CommentSection from "../../components/CommentSection/CommentSection";
 
 const ProductDetailsPage = () => {
   const [productDetails, setProductDetails] = useState(null);
+  const [comments, setComments] = useState([]);
+  const [users, setUsers] = useState([]);
 
   const id = useParams().id;
 
@@ -30,11 +33,44 @@ const ProductDetailsPage = () => {
     }
   };
 
+  const getComments = async () => {
+    try {
+      const response = await axios.get(
+        `${process.env.REACT_APP_BASE_URL}/products/${id}/comments`
+      );
+
+      console.log("Comment Response", response.data);
+
+      setComments(response.data);
+    } catch (error) {
+      console.log("Error getting comments", error);
+    }
+  };
+
+  const getUsers = async () => {
+    try {
+      const response = await axios.get(
+        `${process.env.REACT_APP_BASE_URL}/users`
+      );
+
+      console.log("User Response", response.data);
+
+      setUsers(response.data);
+    } catch (error) {
+      console.log("Error", error);
+    }
+  };
+
   useEffect(() => {
     getProductDetails();
+    getComments();
   }, [id]);
 
-  if (!productDetails) {
+  useEffect(() => {
+    getUsers();
+  }, []);
+
+  if (!productDetails || !comments) {
     return <div>Loading</div>;
   }
 
@@ -76,6 +112,9 @@ const ProductDetailsPage = () => {
             Return to Products
           </button>
         </Link>
+      </div>
+      <div>
+        <CommentSection comments={comments} users={users} />
       </div>
     </>
   );

@@ -8,12 +8,14 @@
   padding: 16px;
   background-color: $color-light-green;
   border-radius: 20px;
+  box-shadow: 5px 5px 5px $color-dark-green;
 
   &__image {
     width: 250px;
     height: 250px;
     border-radius: 20px;
     margin-bottom: 16px;
+    box-shadow: 5px 5px 5px $color-dark-green;
   }
 }
 
@@ -25,6 +27,7 @@
     padding: 16px;
     margin-bottom: 16px;
     text-align: center;
+    box-shadow: 5px 5px 5px $color-dark-green;
   }
 
   &__section {
@@ -40,6 +43,7 @@
     width: 40%;
     text-align: center;
     @include subheader-mobile;
+    box-shadow: 5px 5px 5px $color-dark-green;
   }
 
   &__price {
@@ -49,6 +53,7 @@
     width: 40%;
     text-align: center;
     @include subheader-mobile;
+    box-shadow: 5px 5px 5px $color-dark-green;
   }
 
   &__wrapper {
@@ -56,6 +61,7 @@
     border-radius: 20px;
     padding: 16px;
     margin-bottom: 16px;
+    box-shadow: 5px 5px 5px $color-dark-green;
   }
 
   &__title {
