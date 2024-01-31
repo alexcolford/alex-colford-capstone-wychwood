@@ -10,30 +10,67 @@
   border-radius: 20px;
   box-shadow: 5px 5px 5px $color-dark-green;
 
+  @include tablet {
+    margin: 32px;
+    padding: 32px;
+  }
+
+  @include desktop {
+    margin-top: 0;
+    padding: 64px;
+  }
+
+  @include desktopplus {
+    max-width: 81rem;
+    margin: 32px auto;
+  }
+
   &__image {
     width: 250px;
     height: 250px;
     border-radius: 20px;
     margin-bottom: 16px;
     box-shadow: 5px 5px 5px $color-dark-green;
+
+    @include tablet {
+      width: 300px;
+      height: 300px;
+      margin-bottom: 32px;
+    }
+
+    @include desktop {
+      width: 350px;
+      height: 350px;
+    }
   }
 }
 
 .details-container {
   &__name {
     @include header-mobile;
+    color: $color-dark-green;
     background-color: $color-lightest-green;
     border-radius: 20px;
     padding: 16px;
     margin-bottom: 16px;
     text-align: center;
     box-shadow: 5px 5px 5px $color-dark-green;
+
+    @include tablet {
+      @include header-desktop-tablet;
+      padding: 32px;
+      margin-bottom: 32px;
+    }
   }
 
   &__section {
     display: flex;
     justify-content: space-around;
     margin-bottom: 16px;
+
+    @include tablet {
+      margin-bottom: 32px;
+    }
   }
 
   &__size {
@@ -44,6 +81,11 @@
     text-align: center;
     @include subheader-mobile;
     box-shadow: 5px 5px 5px $color-dark-green;
+
+    @include tablet {
+      padding: 32px;
+      @include subheader-desktop-tablet;
+    }
   }
 
   &__price {
@@ -54,6 +96,11 @@
     text-align: center;
     @include subheader-mobile;
     box-shadow: 5px 5px 5px $color-dark-green;
+
+    @include tablet {
+      padding: 32px;
+      @include subheader-desktop-tablet;
+    }
   }
 
   &__wrapper {
@@ -62,22 +109,43 @@
     padding: 16px;
     margin-bottom: 16px;
     box-shadow: 5px 5px 5px $color-dark-green;
+
+    @include tablet {
+      padding: 32px;
+      margin-bottom: 32px;
+    }
   }
 
   &__title {
     font-size: 1rem;
+
+    @include tablet {
+      font-size: 1.25rem;
+    }
   }
 
   &__description {
     @include body-mobile;
+
+    @include tablet {
+      @include body-desktop-tablet;
+    }
   }
 
   &__instructions {
     @include body-mobile;
+
+    @include tablet {
+      @include body-desktop-tablet;
+    }
   }
 
   &__ingredients {
     @include body-mobile;
+
+    @include tablet {
+      @include body-desktop-tablet;
+    }
   }
 
   &__button {
@@ -89,6 +157,7 @@
 
     @include tablet {
       @include buttons-desktop-tablet;
+      padding: 12px;
     }
 
     &:hover {

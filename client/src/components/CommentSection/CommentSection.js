@@ -1,10 +1,6 @@
 import "./CommentSection.scss";
 
 function CommentSection({ comments, users }) {
-  if (!users) {
-    return <p>Loading users...</p>;
-  }
-
   if (!comments || comments.length === 0) {
     return <p>No comments available.</p>;
   }
@@ -24,12 +20,14 @@ function CommentSection({ comments, users }) {
         <section className="comment-container__section">
           <form className="comment-container__form">
             <div className="comment-container__form-container">
-              <label
-                className="comment-container__form-label"
-                htmlFor="comment"
-              >
+              <h2 className="comment-container__form-heading">
                 WE'D LOVE TO HEAR YOUR THOUGHTS!
-              </label>
+              </h2>
+              <input
+                className="comment-container__form-input"
+                name="title"
+                placeholder="Comment title"
+              ></input>
               <textarea
                 className="comment-container__form-textarea"
                 name="comment"
@@ -37,7 +35,7 @@ function CommentSection({ comments, users }) {
               ></textarea>
             </div>
             <button className="comment-container__form-button">
-              LEAVE A COMMENT
+              Leave a Comment
             </button>
           </form>
         </section>
@@ -45,6 +43,11 @@ function CommentSection({ comments, users }) {
           {comments.map((comment) => {
             const user = users.find((user) => user.id === comment.user_id);
 
+            if (!user) {
+              console.error(
+                `User not found for comment with user_id: ${comment.user_id}`
+              );
+            }
             return (
               <div className="comment-section__container" key={comment.id}>
                 <h4 className="comment-section__details-title">
