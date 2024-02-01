@@ -1,6 +1,7 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import HomePage from "./pages/HomePage/HomePage";
 import ProductsPage from "./pages/ProductsPage/ProductsPage";
+import RegisterPage from "./pages/RegisterPage/RegisterPage";
 import ProductDetailsPage from "./pages/ProductDetailsPage/ProductDetailsPage";
 import ElementsPage from "./pages/ElementsPage/ElementsPage";
 import Header from "./components/Header/Header";
@@ -16,6 +17,7 @@ function App() {
           <Route path="/products" element={<ProductsPage />} />
           <Route path="/products/:id" element={<ProductDetailsPage />} />
           <Route path="/elements" element={<ElementsPage />} />
+          <Route path="/register" element={<RegisterPage />} />
         </Routes>
         <Footer />
       </BrowserRouter>
