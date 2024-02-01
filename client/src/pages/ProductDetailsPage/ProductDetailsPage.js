@@ -4,14 +4,12 @@ import { useState, useEffect } from "react";
 import { Link, useParams } from "react-router-dom";
 import CommentSection from "../../components/CommentSection/CommentSection";
 
-const ProductDetailsPage = ({ isLoggedIn }) => {
+const ProductDetailsPage = ({ isLoggedIn, loggedInUser }) => {
   const [productDetails, setProductDetails] = useState(null);
-  const [comments, setComments] = useState([]);
-  const [users, setUsers] = useState([]);
 
   const id = useParams().id;
 
-  console.log("isLoggedIn", isLoggedIn);
+  // console.log("isLoggedIn", isLoggedIn);
 
   const getProductDetails = async () => {
     try {
@@ -19,7 +17,7 @@ const ProductDetailsPage = ({ isLoggedIn }) => {
         `${process.env.REACT_APP_BASE_URL}/products/${id}`
       );
 
-      console.log("Response", response.data);
+      // console.log("Response", response.data);
 
       setProductDetails({
         name: response.data[0].name,
@@ -35,44 +33,11 @@ const ProductDetailsPage = ({ isLoggedIn }) => {
     }
   };
 
-  const getComments = async () => {
-    try {
-      const response = await axios.get(
-        `${process.env.REACT_APP_BASE_URL}/products/${id}/comments`
-      );
-
-      console.log("Comment Response", response.data);
-
-      setComments(response.data);
-    } catch (error) {
-      console.log("Error getting comments", error);
-    }
-  };
-
-  const getUsers = async () => {
-    try {
-      const response = await axios.get(
-        `${process.env.REACT_APP_BASE_URL}/users`
-      );
-
-      console.log("User Response", response.data);
-
-      setUsers(response.data);
-    } catch (error) {
-      console.log("Error", error);
-    }
-  };
-
   useEffect(() => {
     getProductDetails();
-    getComments();
   }, [id]);
 
-  useEffect(() => {
-    getUsers();
-  }, []);
-
-  if (!productDetails || !comments || !users) {
+  if (!productDetails) {
     return <div>Loading</div>;
   }
 
@@ -116,11 +81,7 @@ const ProductDetailsPage = ({ isLoggedIn }) => {
         </Link>
       </div>
       <div>
-        <CommentSection
-          comments={comments}
-          users={users}
-          isLoggedIn={isLoggedIn}
-        />
+        <CommentSection isLoggedIn={isLoggedIn} loggedInUser={loggedInUser} />
       </div>
     </>
   );

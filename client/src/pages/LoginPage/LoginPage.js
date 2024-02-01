@@ -3,9 +3,8 @@ import { useState, useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
 
-const LoginPage = () => {
+const LoginPage = ({ onLoginStatusChange, onUserStatusChange }) => {
   const navigate = useNavigate();
-  const [isLoggedIn, setIsLoggedIn] = useState(false);
 
   const handleLogin = async (event) => {
     event.preventDefault();
@@ -20,13 +19,16 @@ const LoginPage = () => {
       );
 
       const token = response.data.token;
-      console.log(response.data);
+      const userId = response.data.id;
+      // console.log("Response", response.data);
+      // console.log("userId", userId);
 
       sessionStorage.setItem("token", token);
-      setIsLoggedIn(true);
+      onLoginStatusChange(true);
+      onUserStatusChange(userId);
 
-      navigate("/");
-      window.location.reload(); //this doesnt seem like what i want to do??
+      navigate(`/`);
+      // window.location.reload(); //this doesnt seem like what i want to do??
     } catch (error) {
       console.log("Error", error);
     }

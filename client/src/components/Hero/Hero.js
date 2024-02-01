@@ -8,7 +8,7 @@ const Hero = () => {
       <div className="hero-container">
         <h4 className="hero-container__subtitle">MADE BY NATURE.</h4>
         <h2 className="hero-container__title">Crafted for you.</h2>
-        <Link to={"/products"} className="hero-container__button-container">
+        <Link to={`/products`} className="hero-container__button-container">
           <button className="hero-container__button">Our Products</button>
         </Link>
       </div>

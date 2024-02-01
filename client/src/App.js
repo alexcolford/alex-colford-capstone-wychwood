@@ -5,48 +5,69 @@ import RegisterPage from "./pages/RegisterPage/RegisterPage";
 import ProductDetailsPage from "./pages/ProductDetailsPage/ProductDetailsPage";
 import ElementsPage from "./pages/ElementsPage/ElementsPage";
 import LoginPage from "./pages/LoginPage/LoginPage";
+import ProfilePage from "./pages/ProfilePage/ProfilePage";
 import Header from "./components/Header/Header";
 import Footer from "./components/Footer/Footer";
 import { useEffect, useState } from "react";
 import axios from "axios";
 
 function App() {
-  const [user, setUser] = useState(null);
-  const [usersList, setUsersList] = useState(null);
+  const [users, setUsers] = useState(null);
+
   const [failedAuth, setFailedAuth] = useState(false);
+  const [usersList, setUsersList] = useState(null);
   const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const [loggedInUser, setLoggedInUser] = useState(null);
+
+  console.log("LoggedInUser", loggedInUser);
+
+  const handleLogin = (newStatus) => {
+    setIsLoggedIn(newStatus);
+  };
+
+  const handleUser = (newStatus) => {
+    setLoggedInUser(newStatus);
+  };
+
+  const handleLogout = () => {
+    sessionStorage.removeItem("token");
+    setLoggedInUser(null);
+    setIsLoggedIn(false);
+    setFailedAuth(true);
+  };
 
   useEffect(() => {
     const token = sessionStorage.getItem("token");
 
-    if (!token) {
-      setFailedAuth(true);
-    }
-
     const authorizeUser = async () => {
       try {
-        const response = await axios.get(
-          `${process.env.REACT_APP_BASE_URL}/users/current`,
-          {
-            headers: {
-              Authorization: `Bearer ${token}`,
-            },
-          }
-        );
+        if (token) {
+          const response = await axios.get(
+            `${process.env.REACT_APP_BASE_URL}/users/current`,
+            {
+              headers: {
+                Authorization: `Bearer ${token}`,
+              },
+            }
+          );
 
-        setUser(response.data);
+          setUsers(response.data);
+          setIsLoggedIn(true);
+          setLoggedInUser(response.data.id);
 
-        const usersRes = await axios.get(
-          `${process.env.REACT_APP_BASE_URL}/users`,
-          {
-            headers: {
-              Authorization: `Bearer ${token}`,
-            },
-          }
-        );
+          const usersRes = await axios.get(
+            `${process.env.REACT_APP_BASE_URL}/users`,
+            {
+              headers: {
+                Authorization: `Bearer ${token}`,
+              },
+            }
+          );
 
-        setUsersList(usersRes.data);
-        setIsLoggedIn(true);
+          setUsersList(usersRes.data);
+        } else {
+          setFailedAuth(true);
+        }
       } catch (error) {
         console.log("Error", error);
         setFailedAuth(true);
@@ -55,13 +76,6 @@ function App() {
 
     authorizeUser();
   }, []);
-
-  const handleLogout = () => {
-    sessionStorage.removeItem("token");
-    setIsLoggedIn(false);
-    setUser(null);
-    setFailedAuth(true);
-  };
 
   return (
     <>
@@ -72,11 +86,28 @@ function App() {
           <Route path="/products" element={<ProductsPage />} />
           <Route
             path="/products/:id"
-            element={<ProductDetailsPage isLoggedIn={isLoggedIn} user={user} />}
+            element={
+              <ProductDetailsPage
+                isLoggedIn={isLoggedIn}
+                loggedInUser={loggedInUser}
+              />
+            }
           />
           <Route path="/elements" element={<ElementsPage />} />
           <Route path="/register" element={<RegisterPage />} />
-          <Route path="/login" element={<LoginPage />} />
+          <Route
+            path="/login"
+            element={
+              <LoginPage
+                onLoginStatusChange={handleLogin}
+                onUserStatusChange={handleUser}
+              />
+            }
+          />
+          <Route
+            path="/profile"
+            element={<ProfilePage loggedInUser={loggedInUser} />}
+          />
         </Routes>
         <Footer />
       </BrowserRouter>
