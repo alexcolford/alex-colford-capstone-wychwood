@@ -4,12 +4,14 @@ import { useState, useEffect } from "react";
 import { Link, useParams } from "react-router-dom";
 import CommentSection from "../../components/CommentSection/CommentSection";
 
-const ProductDetailsPage = () => {
+const ProductDetailsPage = ({ isLoggedIn }) => {
   const [productDetails, setProductDetails] = useState(null);
   const [comments, setComments] = useState([]);
   const [users, setUsers] = useState([]);
 
   const id = useParams().id;
+
+  console.log("isLoggedIn", isLoggedIn);
 
   const getProductDetails = async () => {
     try {
@@ -114,7 +116,11 @@ const ProductDetailsPage = () => {
         </Link>
       </div>
       <div>
-        <CommentSection comments={comments} users={users} />
+        <CommentSection
+          comments={comments}
+          users={users}
+          isLoggedIn={isLoggedIn}
+        />
       </div>
     </>
   );

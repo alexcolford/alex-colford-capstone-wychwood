@@ -4,7 +4,7 @@ import "./Header.scss";
 import logo from "../../assets/logo/logo.png";
 import DropdownItem from "../DropdownItem/DropdownItem";
 
-function Header() {
+function Header({ isLoggedIn, handleLogout }) {
   const [open, setOpen] = useState(false);
 
   return (
@@ -61,14 +61,32 @@ function Header() {
         </div>
         <div className="nav-container">
           <ul className="nav-container__list">
-            <Link to={"/register"} className="nav-container__list-link">
-              <li className="nav-container__list-item">REGISTER</li>
-            </Link>
-            <Link className="nav-container__list-link">
-              <li className="nav-container__list-item nav-container__list-item--login">
-                LOGIN
-              </li>
-            </Link>
+            {isLoggedIn ? (
+              <>
+                <Link to={"/profile"} className="nav-container__list-link">
+                  <li className="nav-container__list-item">PROFILE</li>
+                </Link>
+                <Link className="nav-container__list-link">
+                  <li
+                    className="nav-container__list-item nav-container__list-item--login"
+                    onClick={handleLogout}
+                  >
+                    LOGOUT
+                  </li>
+                </Link>
+              </>
+            ) : (
+              <>
+                <Link to={"/register"} className="nav-container__list-link">
+                  <li className="nav-container__list-item">REGISTER</li>
+                </Link>
+                <Link to={"/login"} className="nav-container__list-link">
+                  <li className="nav-container__list-item nav-container__list-item--login">
+                    LOGIN
+                  </li>
+                </Link>
+              </>
+            )}
           </ul>
         </div>
       </nav>
