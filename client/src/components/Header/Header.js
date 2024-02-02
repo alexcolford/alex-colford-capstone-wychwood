@@ -4,7 +4,7 @@ import "./Header.scss";
 import logo from "../../assets/logo/logo.png";
 import DropdownItem from "../DropdownItem/DropdownItem";
 
-function Header({ isLoggedIn, handleLogout }) {
+function Header({ isLoggedIn, handleLogout, loggedInUser }) {
   const [open, setOpen] = useState(false);
 
   return (
@@ -63,7 +63,10 @@ function Header({ isLoggedIn, handleLogout }) {
           <ul className="nav-container__list">
             {isLoggedIn ? (
               <>
-                <Link to={"/profile"} className="nav-container__list-link">
+                <Link
+                  to={`/users/profile/${loggedInUser}`}
+                  className="nav-container__list-link"
+                >
                   <li className="nav-container__list-item">PROFILE</li>
                 </Link>
                 <Link className="nav-container__list-link">

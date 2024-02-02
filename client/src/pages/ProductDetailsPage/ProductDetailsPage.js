@@ -39,7 +39,7 @@ const ProductDetailsPage = ({ isLoggedIn, loggedInUser }) => {
   const getFavourites = async (favouriteId) => {
     try {
       const response = await axios.get(
-        `${process.env.REACT_APP_BASE_URL}/products/${id}/favourites`,
+        `${process.env.REACT_APP_BASE_URL}/users/profile/${loggedInUser}`,
         { data: { id: favouriteId } }
       );
 
@@ -74,7 +74,7 @@ const ProductDetailsPage = ({ isLoggedIn, loggedInUser }) => {
   const handleFavouriting = async (event) => {
     try {
       const response = await axios.post(
-        `${process.env.REACT_APP_BASE_URL}/products/${id}/favourites`,
+        `${process.env.REACT_APP_BASE_URL}/users/profile/${loggedInUser}`,
         newFavourite
       );
 

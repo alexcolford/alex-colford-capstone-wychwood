@@ -35,9 +35,9 @@ function App() {
     setFailedAuth(true);
   };
 
-  useEffect(() => {
-    const token = sessionStorage.getItem("token");
+  const token = sessionStorage.getItem("token");
 
+  useEffect(() => {
     const authorizeUser = async () => {
       try {
         if (token) {
@@ -74,12 +74,16 @@ function App() {
     };
 
     authorizeUser();
-  }, []);
+  }, [token]);
 
   return (
     <>
       <BrowserRouter>
-        <Header isLoggedIn={isLoggedIn} handleLogout={handleLogout} />
+        <Header
+          isLoggedIn={isLoggedIn}
+          handleLogout={handleLogout}
+          loggedInUser={loggedInUser}
+        />
         <Routes>
           <Route path="/" element={<HomePage />} />
           <Route path="/products" element={<ProductsPage />} />
@@ -104,8 +108,10 @@ function App() {
             }
           />
           <Route
-            path="/profile"
-            element={<ProfilePage loggedInUser={loggedInUser} />}
+            path="/users/profile/:id"
+            element={
+              loggedInUser ? <ProfilePage loggedInUser={loggedInUser} /> : null
+            }
           />
         </Routes>
         <Footer />
