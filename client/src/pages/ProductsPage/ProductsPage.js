@@ -13,7 +13,7 @@ const ProductsPage = () => {
         `${process.env.REACT_APP_BASE_URL}/products`
       );
 
-      console.log("Response", response.data);
+      // console.log("Response", response.data);
 
       setProducts(response.data);
     } catch (error) {

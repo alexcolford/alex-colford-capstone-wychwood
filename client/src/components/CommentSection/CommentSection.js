@@ -12,7 +12,7 @@ function CommentSection({ isLoggedIn, loggedInUser }) {
   const [comments, setComments] = useState(null);
   const [users, setUsers] = useState(null);
 
-  console.log("Comment Logged In User", loggedInUser);
+  // console.log("Comment Logged In User", loggedInUser);
 
   const getComments = async (commentId) => {
     try {
@@ -21,7 +21,7 @@ function CommentSection({ isLoggedIn, loggedInUser }) {
         { data: { id: commentId } }
       );
 
-      console.log("Comment Response", response.data);
+      // console.log("Comment Response", response.data);
 
       setComments(response.data);
     } catch (error) {
@@ -52,7 +52,7 @@ function CommentSection({ isLoggedIn, loggedInUser }) {
         `${process.env.REACT_APP_BASE_URL}/users`
       );
 
-      console.log("User Response", response.data);
+      // console.log("User Response", response.data);
 
       setUsers(response.data);
     } catch (error) {
@@ -64,7 +64,7 @@ function CommentSection({ isLoggedIn, loggedInUser }) {
     getUsers();
   }, []);
 
-  console.log("USERS", users);
+  // console.log("USERS", users);
 
   if (!comments) {
     return <p>No comments available.</p>;

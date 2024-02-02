@@ -66,6 +66,7 @@
   &__section {
     display: flex;
     justify-content: space-around;
+    align-items: center;
     margin-bottom: 16px;
 
     @include tablet {
@@ -101,6 +102,14 @@
       padding: 32px;
       @include subheader-desktop-tablet;
     }
+  }
+
+  &__image {
+    background-color: $color-lightest-green;
+    box-shadow: 5px 5px 5px $color-dark-green;
+    border-radius: 20px;
+    padding: 16px;
+    width: 100px;
   }
 
   &__wrapper {
