@@ -124,6 +124,8 @@
   align-items: center;
 
   &__container {
+    display: flex;
+    flex-direction: column;
     position: relative;
     background-color: $color-lightest-green;
     border-radius: 20px;
@@ -164,16 +166,24 @@
     }
   }
 
-  &__details-close {
-    position: absolute;
-    top: 8px;
-    right: 16px;
+  &__details-button {
+    font-size: 10px;
+    padding: 4px;
+    margin-top: 16px;
+    background-color: $color-lightest-green;
     color: $color-dark-green;
-    cursor: pointer;
+    border: 1px solid $color-dark-green;
+    align-self: flex-end;
+
+    @include tablet {
+      font-size: 12px;
+      padding: 8px;
+    }
 
     &:hover {
-      color: #000;
-      transform: scale(1.5);
+      background-color: $color-dark-green;
+      color: $color-lightest-green;
+      border: 1px solid $color-lightest-green;
     }
   }
 

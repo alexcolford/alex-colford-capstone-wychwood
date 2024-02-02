@@ -14,10 +14,11 @@ function CommentSection({ isLoggedIn, loggedInUser }) {
 
   console.log("Comment Logged In User", loggedInUser);
 
-  const getComments = async () => {
+  const getComments = async (commentId) => {
     try {
       const response = await axios.get(
-        `${process.env.REACT_APP_BASE_URL}/products/${id}/comments`
+        `${process.env.REACT_APP_BASE_URL}/products/${id}/comments`,
+        { data: { id: commentId } }
       );
 
       console.log("Comment Response", response.data);
@@ -31,6 +32,19 @@ function CommentSection({ isLoggedIn, loggedInUser }) {
   useEffect(() => {
     getComments();
   }, [id]);
+
+  const onDeleteButtonClicked = async (commentId) => {
+    try {
+      const response = await axios.delete(
+        `${process.env.REACT_APP_BASE_URL}/products/${id}/comments`,
+        { data: { id: commentId } }
+      );
+
+      getComments();
+    } catch (error) {
+      console.log(error);
+    }
+  };
 
   const getUsers = async () => {
     try {
@@ -169,11 +183,7 @@ function CommentSection({ isLoggedIn, loggedInUser }) {
                   <h4 className="comment-section__details-title">
                     {comment.title}
                   </h4>
-                  {isLoggedIn ? (
-                    <p className="comment-section__details-close">X</p>
-                  ) : (
-                    ""
-                  )}
+
                   <div className="comment-section__details">
                     <p className="comment-section__details-name">
                       {user ? user.name || "Unknown User" : "Loading..."}
@@ -185,6 +195,16 @@ function CommentSection({ isLoggedIn, loggedInUser }) {
                   <div className="comment-section__details-content">
                     {comment.comment}
                   </div>
+                  {isLoggedIn ? (
+                    <button
+                      className="comment-section__details-button"
+                      onClick={() => onDeleteButtonClicked(comment.id)}
+                    >
+                      delete comment
+                    </button>
+                  ) : (
+                    ""
+                  )}
                 </div>
               );
             })}
