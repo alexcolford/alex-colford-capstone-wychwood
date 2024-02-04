@@ -2,10 +2,11 @@ import "./RegisterPage.scss";
 import SubmitSuccess from "../../components/SubmitSuccess/SubmitSuccess";
 import error from "../../assets/icons/error-24px.svg";
 import { useState, useEffect } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
 
 const RegisterPage = () => {
+  const navigate = useNavigate();
   const [userData, setUserData] = useState({
     name: "",
     email: "",
@@ -20,7 +21,8 @@ const RegisterPage = () => {
     if (isSuccessfullySubmitted) {
       const timeout = setTimeout(() => {
         setIsSuccessfullySubmitted(false);
-      }, 5000);
+        navigate("/login");
+      }, 3000);
 
       return () => clearTimeout(timeout);
     }
@@ -67,6 +69,7 @@ const RegisterPage = () => {
       console.log("Response", response.data);
       setResponse(response.data);
       setIsSuccessfullySubmitted(true);
+
       event.target.reset();
     } catch (error) {
       console.log("Error", error);

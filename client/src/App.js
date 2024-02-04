@@ -1,4 +1,4 @@
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { BrowserRouter, Routes, Route, useNavigate } from "react-router-dom";
 import HomePage from "./pages/HomePage/HomePage";
 import ProductsPage from "./pages/ProductsPage/ProductsPage";
 import RegisterPage from "./pages/RegisterPage/RegisterPage";
@@ -17,8 +17,6 @@ function App() {
   const [usersList, setUsersList] = useState(null);
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [loggedInUser, setLoggedInUser] = useState(null);
-
-  // console.log("LoggedInUser", loggedInUser);
 
   const handleLogin = (newStatus) => {
     setIsLoggedIn(newStatus);

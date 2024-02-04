@@ -78,7 +78,7 @@
     background-color: $color-lightest-green;
     border-radius: 20px;
     padding: 16px;
-    width: 40%;
+    width: 30%;
     text-align: center;
     @include subheader-mobile;
     box-shadow: 5px 5px 5px $color-dark-green;
@@ -93,7 +93,7 @@
     background-color: $color-lightest-green;
     border-radius: 20px;
     padding: 16px;
-    width: 40%;
+    width: 30%;
     text-align: center;
     @include subheader-mobile;
     box-shadow: 5px 5px 5px $color-dark-green;
@@ -109,7 +109,11 @@
     box-shadow: 5px 5px 5px $color-dark-green;
     border-radius: 20px;
     padding: 16px;
-    width: 100px;
+    width: 50px;
+
+    @include tablet {
+      width: 86px;
+    }
   }
 
   &__wrapper {

@@ -10,17 +10,14 @@ const ProductDetailsPage = ({ isLoggedIn, loggedInUser }) => {
   const [productDetails, setProductDetails] = useState(null);
   const [isFavourited, setIsFavourited] = useState(false);
 
-  const id = useParams().id;
-
-  // console.log("isLoggedIn", isLoggedIn);
+  const { id } = useParams();
+  const productId = parseInt(id);
 
   const getProductDetails = async () => {
     try {
       const response = await axios.get(
         `${process.env.REACT_APP_BASE_URL}/products/${id}`
       );
-
-      // console.log("Response", response.data);
 
       setProductDetails({
         name: response.data[0].name,
@@ -36,55 +33,60 @@ const ProductDetailsPage = ({ isLoggedIn, loggedInUser }) => {
     }
   };
 
-  const getFavourites = async (favouriteId) => {
-    try {
-      const response = await axios.get(
-        `${process.env.REACT_APP_BASE_URL}/users/profile/${loggedInUser}`,
-        { data: { id: favouriteId } }
-      );
-
-      // console.log("Get Favourites Response", response.data);
-
-      setIsFavourited(response.data);
-    } catch (error) {
-      console.log("Error getting favourites", error);
-    }
-  };
-
   useEffect(() => {
     getProductDetails();
   }, [id]);
 
+  const getIsFavourited = async () => {
+    try {
+      const response = await axios.get(
+        `${process.env.REACT_APP_BASE_URL}/favourites`
+      );
+
+      const filteredFavorites = response.data.filter(
+        (favorite) =>
+          favorite.user_id === loggedInUser && favorite.product_id === productId
+      );
+
+      const isFavourited =
+        filteredFavorites.length > 0
+          ? filteredFavorites[0].is_favourited
+          : false;
+
+      setIsFavourited(isFavourited);
+    } catch (error) {
+      console.error("Error fetching favourite status:", error);
+    }
+  };
+
   useEffect(() => {
-    getFavourites();
-  }, []);
+    getIsFavourited();
+  }, [id, loggedInUser]);
+
+  const handleFavouriting = async () => {
+    try {
+      if (isFavourited) {
+        await axios.delete(
+          `${process.env.REACT_APP_BASE_URL}/products/${id}/favourite`,
+          {
+            data: { user_id: loggedInUser, id },
+          }
+        );
+      } else {
+        await axios.post(
+          `${process.env.REACT_APP_BASE_URL}/products/${id}/favourite`,
+          { user_id: loggedInUser, id }
+        );
+      }
+      setIsFavourited(!isFavourited);
+    } catch (error) {
+      console.error("Error handling favouriting:", error);
+    }
+  };
 
   if (!productDetails) {
     return <div>Loading</div>;
   }
-
-  // console.log("GETfavourites", isFavourited);
-
-  let newFavourite = {
-    product_id: id,
-    user_id: loggedInUser,
-    is_favourited: true,
-  };
-
-  const handleFavouriting = async (event) => {
-    try {
-      const response = await axios.post(
-        `${process.env.REACT_APP_BASE_URL}/users/profile/${loggedInUser}`,
-        newFavourite
-      );
-
-      console.log("Favourite Response", response.data);
-      setIsFavourited(response.data.is_favourited);
-      getFavourites();
-    } catch (error) {
-      console.log("Error", error);
-    }
-  };
 
   return (
     <>

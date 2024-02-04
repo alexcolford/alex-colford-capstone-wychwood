@@ -12,16 +12,12 @@ function CommentSection({ isLoggedIn, loggedInUser }) {
   const [comments, setComments] = useState(null);
   const [users, setUsers] = useState(null);
 
-  // console.log("Comment Logged In User", loggedInUser);
-
   const getComments = async (commentId) => {
     try {
       const response = await axios.get(
         `${process.env.REACT_APP_BASE_URL}/products/${id}/comments`,
         { data: { id: commentId } }
       );
-
-      // console.log("Comment Response", response.data);
 
       setComments(response.data);
     } catch (error) {
@@ -52,8 +48,6 @@ function CommentSection({ isLoggedIn, loggedInUser }) {
         `${process.env.REACT_APP_BASE_URL}/users`
       );
 
-      // console.log("User Response", response.data);
-
       setUsers(response.data);
     } catch (error) {
       console.log("Error", error);
@@ -64,14 +58,8 @@ function CommentSection({ isLoggedIn, loggedInUser }) {
     getUsers();
   }, []);
 
-  // console.log("USERS", users);
-
-  if (!comments) {
-    return <p>No comments available.</p>;
-  }
-
-  if (!users) {
-    return <p>Cannot fetch users.</p>;
+  if (!comments || !users) {
+    return <p>Loading...</p>;
   }
 
   const formattedTimestamp = (created_at) => {
@@ -167,16 +155,6 @@ function CommentSection({ isLoggedIn, loggedInUser }) {
                 comment.user_id !== undefined
                   ? users.find((user) => user.id === comment.user_id)
                   : null;
-              if (
-                comment.user_id !== null &&
-                comment.user_id !== undefined &&
-                !user
-              ) {
-                console.error(
-                  `User not found for comment with user_id: ${comment.user_id}`
-                );
-                return "";
-              }
 
               return (
                 <div className="comment-section__container" key={comment.id}>

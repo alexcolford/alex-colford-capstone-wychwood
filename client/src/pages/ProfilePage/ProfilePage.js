@@ -1,10 +1,11 @@
 import "./ProfilePage.scss";
 import ProductComponent from "../../components/ProductComponent/ProductCompnent";
 import { useState, useEffect } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import axios from "axios";
 
 const ProfilePage = ({ loggedInUser }) => {
+  const navigate = useNavigate();
   const [products, setProducts] = useState(null);
   const [favourites, setFavourites] = useState(null);
   const [users, setUsers] = useState(null);
@@ -15,8 +16,6 @@ const ProfilePage = ({ loggedInUser }) => {
         `${process.env.REACT_APP_BASE_URL}/products`
       );
 
-      console.log("Products Response", response.data);
-
       setProducts(response.data);
     } catch (error) {
       console.log("Error", error);
@@ -26,10 +25,8 @@ const ProfilePage = ({ loggedInUser }) => {
   const getFavourites = async (loggedInUser) => {
     try {
       const response = await axios.get(
-        `${process.env.REACT_APP_BASE_URL}/users/profile/${loggedInUser}`
+        `${process.env.REACT_APP_BASE_URL}/favourites`
       );
-
-      console.log("Favourites Response", response.data);
 
       setFavourites(response.data);
     } catch (error) {
@@ -43,15 +40,11 @@ const ProfilePage = ({ loggedInUser }) => {
         `${process.env.REACT_APP_BASE_URL}/users`
       );
 
-      console.log("User Response", response.data);
-
       setUsers(response.data);
     } catch (error) {
       console.log("Error", error);
     }
   };
-
-  // console.log("Logged In User", loggedInUser);
 
   useEffect(() => {
     getProducts();
@@ -66,17 +59,30 @@ const ProfilePage = ({ loggedInUser }) => {
     return <div>Loading</div>;
   }
 
+  const currentUser = users.find((user) => loggedInUser === user.id);
+
   const filteredProducts = products
     ? products.filter((product) =>
-        favourites
-          ? favourites.some((fav) => fav.product_id === product.id)
-          : false
+        favourites.some(
+          (favourite) =>
+            favourite.user_id === loggedInUser &&
+            favourite.product_id === product.id
+        )
       )
     : [];
 
-  const currentUser = users.find((user) => loggedInUser === user.id);
+  const onDeleteButtonClicked = async () => {
+    try {
+      const response = await axios.delete(
+        `${process.env.REACT_APP_BASE_URL}/users/profile/${loggedInUser}`
+      );
 
-  console.log("Current User", currentUser);
+      sessionStorage.removeItem("token");
+      navigate("/");
+    } catch (error) {
+      console.log(error);
+    }
+  };
 
   return (
     <main className="profile">
@@ -95,7 +101,12 @@ const ProfilePage = ({ loggedInUser }) => {
       </div>
       <div className="profile-container">
         <button className="profile-container__button">EDIT PROFILE</button>
-        <button className="profile-container__button">DELETE PROFILE</button>
+        <button
+          className="profile-container__button"
+          onClick={onDeleteButtonClicked}
+        >
+          DELETE PROFILE
+        </button>
       </div>
     </main>
   );
