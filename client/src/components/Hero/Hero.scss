@@ -7,44 +7,45 @@
   align-items: center;
   justify-content: center;
   width: 50%;
-  padding-right: 16px;
+  padding-right: 1rem;
+  text-shadow: 0px 0px 5px $color-green;
 
   @include tablet {
-    padding-right: 32px;
+    padding-right: 2rem;
   }
 
   @include desktop {
     width: 40%;
-    padding-right: 64px;
+    padding-right: 4rem;
   }
 
   &__subtitle {
     @include subheader-mobile;
     color: $color-dark-green;
-    padding-bottom: 8px;
+    padding-bottom: 0.5rem;
     text-align: center;
 
     @include tablet {
       @include subheader-desktop-tablet;
-      padding-bottom: 24px;
+      padding-bottom: 1.5rem;
     }
   }
 
   &__title {
     @include header-mobile;
     color: $color-dark-green;
-    padding-bottom: 8px;
+    padding-bottom: 0.5rem;
     text-align: center;
 
     @include tablet {
       @include header-desktop-tablet;
-      padding-bottom: 24px;
+      padding-bottom: 1.5rem;
     }
   }
 
   &__button {
     @include buttons-mobile;
-    padding: 8px;
+    padding: 0.5rem;
     background-color: $color-light-green;
     color: $color-dark-green;
     border: 1px solid $color-dark-green;
@@ -74,7 +75,7 @@
     height: 100%;
     border-radius: 20px;
     z-index: 1;
-    box-shadow: 5px 5px 5px $color-dark-green;
+    box-shadow: 0px 0px 10px $color-dark-green;
   }
 
   &__image-overlay {

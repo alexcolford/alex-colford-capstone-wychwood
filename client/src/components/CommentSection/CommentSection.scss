@@ -5,22 +5,22 @@
   flex-direction: column;
   background-color: $color-light-green;
   border-radius: 20px;
-  box-shadow: 5px 5px 5px $color-dark-green;
-  padding: 16px 16px 0 16px;
-  margin: 0 16px 16px 16px;
+  box-shadow: 0px 0px 10px $color-dark-green;
+  padding: 1rem 1rem 0 1rem;
+  margin: 0 1rem 1rem 1rem;
 
   @include tablet {
-    padding: 32px 32px 0 32px;
-    margin: 0 32px 32px 32px;
+    padding: 2rem 2rem 0 2rem;
+    margin: 0 2rem 2rem 2rem;
   }
 
   @include desktop {
-    padding: 64px 64px 32px 64px;
+    padding: 4rem 4rem 2rem 4rem;
   }
 
   @include desktopplus {
     max-width: 81rem;
-    margin: 32px auto 0;
+    margin: 2rem auto 0;
   }
 
   &__title {
@@ -44,17 +44,17 @@
     text-align: center;
     background-color: $color-lightest-green;
     border-radius: 20px;
-    box-shadow: 5px 5px 5px $color-dark-green;
-    padding: 16px;
-    margin: 16px 0;
+    box-shadow: 0px 0px 10px $color-dark-green;
+    padding: 1rem;
+    margin: 1rem 0;
 
     @include tablet {
-      padding: 32px;
-      margin: 32px 0;
+      padding: 2rem;
+      margin: 2rem 0;
     }
 
     @include desktop {
-      padding: 64px 96px;
+      padding: 4rem 6rem;
     }
   }
 
@@ -64,50 +64,50 @@
 
   &__form-heading {
     color: $color-dark-green;
-    font-size: 12px;
+    font-size: 0.75rem;
     font-weight: 700;
 
     @include tablet {
-      font-size: 16px;
+      font-size: 1rem;
     }
   }
 
   &__form-input {
     width: 100%;
-    padding: 8px;
-    margin-top: 16px;
+    padding: 0.5rem;
+    margin-top: 1rem;
     border: 1px solid $color-dark-green;
 
     @include tablet {
-      padding: 12px;
-      margin-top: 32px;
+      padding: 0.75rem;
+      margin-top: 2rem;
     }
   }
 
   &__form-textarea {
     width: 100%;
-    height: 100px;
-    padding: 8px;
-    margin: 8px 0 16px 0;
+    height: 6.25rem;
+    padding: 0.5rem;
+    margin: 0.5rem 0 1rem 0;
     border-color: $color-dark-green;
 
     @include tablet {
-      height: 150px;
-      padding: 12px;
-      margin: 16px 0 32px 0;
+      height: 9.375rem;
+      padding: 0.75rem;
+      margin: 1rem 0 2rem 0;
     }
   }
 
   &__form-button {
     @include buttons-mobile;
-    padding: 8px;
+    padding: 0.5rem;
     background-color: $color-lightest-green;
     color: $color-dark-green;
     border: 1px solid $color-dark-green;
 
     @include tablet {
       @include buttons-desktop-tablet;
-      padding: 12px;
+      padding: 0.75rem;
     }
 
     &:hover {
@@ -129,14 +129,14 @@
     position: relative;
     background-color: $color-lightest-green;
     border-radius: 20px;
-    box-shadow: 5px 5px 5px $color-dark-green;
-    padding: 16px;
-    margin-bottom: 16px;
+    box-shadow: 0px 0px 10px $color-dark-green;
+    padding: 1rem;
+    margin-bottom: 1rem;
     width: 100%;
 
     @include tablet {
-      padding: 32px;
-      margin-bottom: 32px;
+      padding: 2rem;
+      margin-bottom: 2rem;
     }
   }
 
@@ -145,39 +145,39 @@
     flex-direction: row;
     justify-content: space-between;
     border-bottom: 1px solid $color-dark-green;
-    padding: 0 16px;
+    padding: 0 1rem;
 
     @include tablet {
-      padding: 0 32px;
+      padding: 0 2rem;
     }
   }
 
   &__details-title {
-    font-size: 12px;
+    font-size: 0.75rem;
     font-weight: 600;
-    padding-bottom: 8px;
+    padding-bottom: 0.5rem;
     border-bottom: 1px solid $color-dark-green;
     color: $color-dark-green;
     text-align: center;
 
     @include tablet {
-      font-size: 16px;
-      padding-bottom: 12px;
+      font-size: 1rem;
+      padding-bottom: 0.75rem;
     }
   }
 
   &__details-button {
-    font-size: 10px;
-    padding: 4px;
-    margin-top: 16px;
+    font-size: 0.625rem;
+    padding: 0.25rem;
+    margin-top: 1rem;
     background-color: $color-lightest-green;
     color: $color-dark-green;
     border: 1px solid $color-dark-green;
     align-self: flex-end;
 
     @include tablet {
-      font-size: 12px;
-      padding: 8px;
+      font-size: 0.75rem;
+      padding: 0.5rem;
     }
 
     &:hover {
@@ -189,34 +189,34 @@
 
   &__details-timestamp {
     font-size: 10px;
-    padding: 8px 0;
+    padding: 0.5rem 0;
     color: $color-dark-green;
 
     @include tablet {
-      font-size: 12px;
-      padding: 16px 0;
+      font-size: 0.75rem;
+      padding: 1rem 0;
     }
   }
 
   &__details-name {
-    font-size: 10px;
-    padding: 8px 0;
+    font-size: 0.625rem;
+    padding: 0.5rem 0;
     color: $color-dark-green;
 
     @include tablet {
-      font-size: 12px;
-      padding: 16px 0;
+      font-size: 0.75rem;
+      padding: 1rem 0;
     }
   }
 
   &__details-content {
-    font-size: 12px;
-    padding-top: 8px;
+    font-size: 0.75rem;
+    padding-top: 0.5rem;
     color: $color-dark-green;
 
     @include tablet {
-      font-size: 14px;
-      padding-top: 12px;
+      font-size: 0.875rem;
+      padding-top: 0.75rem;
     }
   }
 }

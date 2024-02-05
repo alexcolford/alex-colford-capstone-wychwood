@@ -6,10 +6,11 @@
   justify-content: center;
   align-items: center;
   background-color: $color-dark-green;
-  padding: 16px;
+  padding: 1rem;
+  text-shadow: 0px 0px 5px $color-green;
 
   @include tablet {
-    padding: 32px;
+    padding: 2rem;
   }
 
   @include desktopplus {
@@ -18,11 +19,11 @@
   }
 
   &__copyright {
-    font-size: 8px;
+    font-size: 0.5rem;
     color: $color-white;
 
     @include tablet {
-      font-size: 16px;
+      font-size: 1rem;
     }
   }
 }
@@ -31,10 +32,14 @@
   display: flex;
   justify-content: space-around;
   width: 50%;
-  padding-bottom: 16px;
+  padding-bottom: 1rem;
 
   @include tablet {
     width: 25%;
-    padding-bottom: 32px;
+    padding-bottom: 2rem;
+  }
+
+  &__icon:hover {
+    transform: scale(1.5);
   }
 }

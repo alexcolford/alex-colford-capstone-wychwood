@@ -66,10 +66,8 @@ const RegisterPage = () => {
         newUser
       );
 
-      console.log("Response", response.data);
       setResponse(response.data);
       setIsSuccessfullySubmitted(true);
-
       event.target.reset();
     } catch (error) {
       console.log("Error", error);

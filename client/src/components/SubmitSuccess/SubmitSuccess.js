@@ -3,9 +3,9 @@ import "./SubmitSuccess.scss";
 
 function SubmitSuccess({ trigger }) {
   return trigger ? (
-    <div className="upload-success">
-      <div className="upload-success__content">
-        <h3 className="upload-success__message">
+    <div className="submit-success">
+      <div className="submit-success__content">
+        <h3 className="submit-success__message">
           Account successfully created!
         </h3>
       </div>

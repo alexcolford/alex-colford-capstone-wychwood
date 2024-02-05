@@ -1,17 +1,17 @@
 @use "../../styles/partials/globals" as *;
 
 .header {
-  // background-color: $color-lightest-green;
   display: flex;
   flex-direction: column;
-  padding: 16px;
+  padding: 1rem;
+  text-shadow: 0px 0px 5px $color-light-green;
 
   @include tablet {
-    padding: 32px 48px;
+    padding: 2rem 3rem;
   }
 
   @include desktop {
-    padding: 64px 80px;
+    padding: 4rem 5rem;
   }
 
   @include desktopplus {
@@ -26,8 +26,8 @@
   border-bottom: 1px solid $color-dark-green;
 
   &__logo {
-    padding-bottom: 16px;
-    width: 250px;
+    padding-bottom: 1rem;
+    width: 15.625rem;
   }
 }
 
@@ -43,7 +43,7 @@
 .nav-container {
   &__list {
     display: flex;
-    padding-top: 16px;
+    padding-top: 1rem;
   }
 
   &__list-item {
@@ -73,6 +73,10 @@
     &--login {
       padding-right: 0;
     }
+
+    &:hover {
+      transform: scale(1.1);
+    }
   }
 
   &__list-link {
@@ -86,8 +90,8 @@
 
   &__menu-dropdown {
     position: absolute;
-    top: 36px;
-    left: -8px;
+    top: 2.25rem;
+    left: -0.5rem;
     background-color: white;
     z-index: 3;
 

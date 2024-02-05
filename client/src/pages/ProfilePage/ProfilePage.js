@@ -1,5 +1,5 @@
 import "./ProfilePage.scss";
-import ProductComponent from "../../components/ProductComponent/ProductCompnent";
+import ProductComponent from "../../components/ProductComponent/ProductComponent";
 import { useState, useEffect } from "react";
 import { useNavigate, Link } from "react-router-dom";
 import axios from "axios";

@@ -1,8 +1,7 @@
 import "./ProductsPage.scss";
 import axios from "axios";
-import ProductComponent from "../../components/ProductComponent/ProductCompnent";
+import ProductComponent from "../../components/ProductComponent/ProductComponent";
 import { useState, useEffect } from "react";
-import { Link } from "react-router-dom";
 
 const ProductsPage = () => {
   const [products, setProducts] = useState(null);
@@ -12,8 +11,6 @@ const ProductsPage = () => {
       const response = await axios.get(
         `${process.env.REACT_APP_BASE_URL}/products`
       );
-
-      // console.log("Response", response.data);
 
       setProducts(response.data);
     } catch (error) {

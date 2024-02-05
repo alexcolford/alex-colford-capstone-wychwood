@@ -2,7 +2,7 @@ import "./EditProfilePage.scss";
 import SaveSuccess from "../../components/SaveSuccess/SaveSuccess";
 import error from "../../assets/icons/error-24px.svg";
 import { useState, useEffect } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import axios from "axios";
 
 const EditProfilePage = ({ loggedInUser }) => {
@@ -14,7 +14,6 @@ const EditProfilePage = ({ loggedInUser }) => {
   const [response, setResponse] = useState([]);
   const [isSubmitted, setIsSubmitted] = useState(false);
   const [isSuccessfullySubmitted, setIsSuccessfullySubmitted] = useState(false);
-  //   const [users, setUsers] = useState(null);
 
   const getUsers = async () => {
     try {
@@ -23,7 +22,6 @@ const EditProfilePage = ({ loggedInUser }) => {
       );
 
       const allUsers = response.data;
-
       const currentUser = allUsers.find((user) => loggedInUser === user.id);
 
       setEditUserData({
@@ -65,7 +63,6 @@ const EditProfilePage = ({ loggedInUser }) => {
     event.preventDefault();
 
     setIsSubmitted(true);
-    console.log("LOGGED IN USER", loggedInUser);
 
     if (editUserData.name === "" || editUserData.email === "") {
       return;
@@ -80,7 +77,6 @@ const EditProfilePage = ({ loggedInUser }) => {
         }
       );
 
-      console.log("Response", response.data);
       setResponse(response.data);
       setIsSuccessfullySubmitted(true);
     } catch (error) {
@@ -95,22 +91,15 @@ const EditProfilePage = ({ loggedInUser }) => {
     </span>
   );
 
-  const passwordMatch = (
-    <span className="register-form__error">
-      <img className="register-form__error-icon" src={error} alt="error" />
-      Your passwords don't match!
-    </span>
-  );
-
   return (
-    <main className="register">
-      <form className="register-form" onSubmit={handleSubmit}>
-        <div className="register-form__container">
-          <h1 className="register-form__container-title">EDIT PROFILE</h1>
+    <main className="edit-profile">
+      <form className="edit-profile-form" onSubmit={handleSubmit}>
+        <div className="edit-profiler-form__container">
+          <h1 className="edit-profile-form__container-title">EDIT PROFILE</h1>
           <input
-            className={`register-form__container-input ${
+            className={`edit-profile-form__container-input ${
               isSubmitted && editUserData.name === ""
-                ? "register-form__container-input--error"
+                ? "edit-profile-form__container-input--error"
                 : ""
             }`}
             name="name"
@@ -121,9 +110,9 @@ const EditProfilePage = ({ loggedInUser }) => {
           ></input>
           {isSubmitted && editUserData.name === "" ? errorMessage : ""}
           <input
-            className={`register-form__container-input ${
+            className={`edit-profile-form__container-input ${
               isSubmitted && editUserData.email === ""
-                ? "register-form__container-input--error"
+                ? "edit-profile-form__container-input--error"
                 : ""
             }`}
             name="email"
@@ -134,7 +123,7 @@ const EditProfilePage = ({ loggedInUser }) => {
           ></input>
           {isSubmitted && editUserData.email === "" ? errorMessage : ""}
         </div>
-        <button className="register-form__button">SAVE CHANGES</button>
+        <button className="edit-profile-form__button">SAVE CHANGES</button>
         <SaveSuccess trigger={isSuccessfullySubmitted} />
       </form>
     </main>

@@ -3,16 +3,16 @@
 .product-container {
   display: flex;
   flex-direction: column;
-  margin: 0 16px;
+  margin: 0 1rem;
 
   @include tablet {
     flex-direction: row;
     flex-wrap: wrap;
-    margin: 0 32px 0 0;
+    margin: 0 2rem 0 0;
   }
 
   @include desktop {
-    margin: 0 64px 0 32px;
+    margin: 0 4rem 0 2rem;
   }
 
   @include desktopplus {

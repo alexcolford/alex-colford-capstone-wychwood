@@ -97,8 +97,6 @@ function CommentSection({ isLoggedIn, loggedInUser }) {
         comment
       );
 
-      console.log("Response", response.data);
-
       setComments((prevComments) => [...prevComments, response.data]);
 
       setCommentData({

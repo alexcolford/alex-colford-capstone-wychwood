@@ -1,5 +1,3 @@
-import { Link } from "react-router-dom";
-import storyImage from "../../assets/images/photo-1.jpg";
 import "./Story.scss";
 
 const Story = () => {
@@ -41,13 +39,6 @@ const Story = () => {
         </p>
         <p className="story-container__paragraph">Melanie</p>
       </div>
-      {/* <div className="hero-container__image-container">
-        <img
-          className="hero-container__image"
-          src={heroImage}
-          alt="products-on-shelf"
-        />
-      </div> */}
     </>
   );
 };

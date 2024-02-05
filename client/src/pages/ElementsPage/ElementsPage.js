@@ -13,8 +13,6 @@ const ElementsPage = () => {
         `${process.env.REACT_APP_BASE_URL}/elements`
       );
 
-      //   console.log("Response", response.data);
-
       setElements(response.data);
     } catch (error) {
       console.log("Error", error);

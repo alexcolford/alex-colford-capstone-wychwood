@@ -1,5 +1,4 @@
 import "./LoginPage.scss";
-import { useState, useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
 
@@ -20,15 +19,12 @@ const LoginPage = ({ onLoginStatusChange, onUserStatusChange }) => {
 
       const token = response.data.token;
       const userId = response.data.id;
-      // console.log("Response", response.data);
-      // console.log("userId", userId);
 
       sessionStorage.setItem("token", token);
       onLoginStatusChange(true);
       onUserStatusChange(userId);
 
       navigate(`/`);
-      // window.location.reload(); //this doesnt seem like what i want to do??
     } catch (error) {
       console.log("Error", error);
     }
@@ -55,7 +51,7 @@ const LoginPage = ({ onLoginStatusChange, onUserStatusChange }) => {
         <button className="login-form__button">LOGIN</button>
       </form>
       <p className="login__note">
-        Don't have an account?
+        Don't have an account?{" "}
         <Link className="login__note-link" to="/register">
           Register Here
         </Link>
