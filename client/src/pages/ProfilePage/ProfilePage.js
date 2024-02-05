@@ -1,7 +1,7 @@
 import "./ProfilePage.scss";
 import ProductComponent from "../../components/ProductComponent/ProductCompnent";
 import { useState, useEffect } from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
 import axios from "axios";
 
 const ProfilePage = ({ loggedInUser }) => {
@@ -9,6 +9,8 @@ const ProfilePage = ({ loggedInUser }) => {
   const [products, setProducts] = useState(null);
   const [favourites, setFavourites] = useState(null);
   const [users, setUsers] = useState(null);
+
+  console.log("USERS", users);
 
   const getProducts = async () => {
     try {
@@ -100,7 +102,12 @@ const ProfilePage = ({ loggedInUser }) => {
         </div>
       </div>
       <div className="profile-container">
-        <button className="profile-container__button">EDIT PROFILE</button>
+        <Link
+          to={`/users/profile/${loggedInUser}/edit`}
+          loggedInUser={loggedInUser}
+        >
+          <button className="profile-container__button">EDIT PROFILE</button>
+        </Link>
         <button
           className="profile-container__button"
           onClick={onDeleteButtonClicked}

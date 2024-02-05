@@ -8,6 +8,7 @@ import LoginPage from "./pages/LoginPage/LoginPage";
 import ProfilePage from "./pages/ProfilePage/ProfilePage";
 import Header from "./components/Header/Header";
 import Footer from "./components/Footer/Footer";
+import EditProfilePage from "./pages/EditProfilePage/EditProfilePage";
 import { useEffect, useState } from "react";
 import axios from "axios";
 
@@ -109,6 +110,14 @@ function App() {
             path="/users/profile/:id"
             element={
               loggedInUser ? <ProfilePage loggedInUser={loggedInUser} /> : null
+            }
+          />
+          <Route
+            path="/users/profile/:id/edit"
+            element={
+              loggedInUser ? (
+                <EditProfilePage loggedInUser={loggedInUser} />
+              ) : null
             }
           />
         </Routes>

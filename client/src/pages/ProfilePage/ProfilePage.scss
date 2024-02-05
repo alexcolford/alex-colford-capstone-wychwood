@@ -81,6 +81,7 @@
 
   &__button {
     @include buttons-mobile;
+    width: 100%;
     padding: 8px;
     margin-top: 16px;
     background-color: $color-light-green;
